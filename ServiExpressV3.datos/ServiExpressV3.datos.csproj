@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{67483BB0-91D0-40E9-865B-0E71FC43A008}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiExpressV3.datos</RootNamespace>
+    <AssemblyName>ServiExpressV3.datos</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DOCUMENTO_TRIBUTARIO.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ESTADO_ORDEN_COMPRA.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FAMILIA_PRODUCTO.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FORMA_PAGO.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OPERACIONES.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORDEN_DE_COMPRA.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRODUCTOS.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PROVEEDOR.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RECEPCION.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RESERVAS.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ROL_OPERACION.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ROL_USUARIO.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUBRO.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SERVICIO.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiExpressModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiExpressModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiExpressModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiExpressModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiExpressModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TIPO_DOCUMENTO.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIPO_PRODUCTO.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TIPO_SERVICIO.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USUARIO.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VEHICULOS.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VENTA_PRODUCTO.cs">
+      <DependentUpon>ServiExpressModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="App_Browsers\qt.browser" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="ServiExpressModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ServiExpressModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ServiExpressModel.edmx.diagram">
+      <DependentUpon>ServiExpressModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
+    <Content Include="ServiExpressModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ServiExpressModel.edmx</DependentUpon>
+      <LastGenOutput>ServiExpressModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ServiExpressModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ServiExpressModel.edmx</DependentUpon>
+      <LastGenOutput>ServiExpressModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

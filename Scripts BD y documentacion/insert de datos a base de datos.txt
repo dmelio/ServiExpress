@@ -1,0 +1,234 @@
+create or replace TRIGGER "COD_PRODUCTO" 
+BEFORE INSERT OR UPDATE ON PRODUCTOS
+FOR EACH ROW 
+DECLARE
+	ID_FAMILIA NUMBER ;
+BEGIN
+	SELECT sp.ID_FAMILIA_PRODUCTO INTO ID_FAMILIA FROM TIPO_PRODUCTO sp 
+	WHERE ID_TIPO_PRODUCTO = :NEW.ID_TIPO_PRODUCTO;
+	:NEW.CODIGO_PRODUCTO := TO_NUMBER(LPAD(:NEW.ID_PROVEEDOR, 3, '0') 
+		|| LPAD((ID_FAMILIA), 3, '0') 
+		|| CASE 
+			WHEN :NEW.FECHA_VENCIMIENTO IS NULL
+				THEN '00000000'
+			ELSE TO_CHAR(:NEW.FECHA_VENCIMIENTO, 'YYYYMMDD')
+			END 
+		|| LPAD(:NEW.ID_TIPO_PRODUCTO, 3, '0'));
+END;
+
+Create sequence familia_prod_seq
+start with 100 
+increment by 1
+nocache
+nocycle;
+
+insert into familia_producto
+values (familia_prod_seq.nextval, 'Aceites');
+insert into familia_producto
+values (familia_prod_seq.nextval, 'Limpiadores');
+insert into familia_producto
+values (familia_prod_seq.nextval, 'Neumaticos');
+insert into familia_producto
+values (familia_prod_seq.nextval, 'Baterias');
+insert into familia_producto
+values (familia_prod_seq.nextval, 'Anticongelantes y aguas');
+insert into familia_producto
+values (familia_prod_seq.nextval, 'Carroceria');
+insert into familia_producto
+values (familia_prod_seq.nextval, 'Filtros');
+
+--llenar tabla tipo_producto--
+Create sequence tipo_prod_seq
+start with 100 
+increment by 1
+nocache
+nocycle;
+select * from tipo_producto;
+--familia aceites--
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Aceite de motor', 100);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Aceite de caja', 100);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Aceite diferencial', 100);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Aceite de moto', 100);
+--familia limpiadores--
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Siliconas', 101);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Pastas de pulir', 101);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Shampoo', 101);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Tratamiento de parabrisas', 101);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Ceras', 101);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Limpia tapiz', 101);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Renovador de naumaticos', 101);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Tratamiento Exterior', 101);
+--familia neumaticos--
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Neumaticos Automovil', 102);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Neumaticos Camionetas y SUV', 102);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Neumaticos Motocicletas', 102);
+--familia baterias--
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Bateria de Auto', 103);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Bateria de Camion', 103);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Bateria de Moto', 103);
+--familia Anticongelantes y aguas--
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Anticongelante', 104);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Aguas', 104);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Refrigerante', 104);
+--familia Carroceria--
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Espejos', 105);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Farol', 105);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Faroles delanteros', 105);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Tapas de bencina', 105);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Neblineros', 105);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Optico', 105);
+--familia filtros--
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Filtro de Aire', 106);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Filtro de Aire acondicionado', 106);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Filtro de Aceite', 106);
+insert into tipo_producto
+values (tipo_prod_seq.nextval, 'Filtro de Combustible', 106);
+
+CREATE SEQUENCE producto_seq
+    START WITH 100
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+insert into productos
+values (producto_seq.nextval,null,100,106,'Shampoo soft wash gel 473ml','Meguiars','Shampoo soft wash gel 473ml',to_date('2025/11/22', 'yyyy/mm/dd'),6290,5199,41);
+insert into productos
+values (producto_seq.nextval,null,101,117,'Batería De Auto DGP MF40B19FL 35AH 300CCA','Meguiars','Batería De Auto DGP MF40B19FL 35AH 300CCA',null,54000,49000,10); (0.036seg)
+
+CREATE SEQUENCE proveedor_seq
+    START WITH 100
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+insert into rubro 
+values (rubro_seq.nextval,'Venta al por menor de combustible para vehículos automotores y motocicletas');
+insert into rubro 
+values (rubro_seq.nextval,'VEHÍCULOS AUTOMOTORES, MOTOCICLETAS Y TODO TIPO DE RODADOS ');
+insert into rubro 
+values (rubro_seq.nextval,'Fabricación de partes; piezas y accesorios para vehículos automotores y sus motores');
+
+insert into rol_usuario
+values(1,'Administrador');
+insert into rol_usuario
+values(2,'Ejecutivo');
+insert into rol_usuario
+values(3,'Mecanico');
+insert into rol_usuario
+values(4,'Cliente');
+
+insert into usuario
+values('19279311-4','Daniel Melio','d.melio@correo.cl','12345',1,''calle false 123','+56961772339');
+
+insert into proveedor
+values (proveedor_seq.nextval,'78827280-4','VendecosasDeauto','calle falsa 121212',100,'952113554','VendecosasDeauto@correo.cl');
+
+
+CREATE SEQUENCE vprod_seq
+    START WITH 100
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+CREATE SEQUENCE servicio_seq
+    START WITH 100
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+CREATE SEQUENCE rubro_seq
+    START WITH 100
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+CREATE SEQUENCE reserva_seq
+    START WITH 100
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+CREATE SEQUENCE ordencompra_seq
+    START WITH 100
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+CREATE SEQUENCE notacredito_seq
+    START WITH 100
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+CREATE SEQUENCE factura_seq
+    START WITH 100
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+CREATE SEQUENCE doctrib_seq
+    START WITH 100
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+CREATE SEQUENCE boleta_seq
+    START WITH 100
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+CREATE SEQUENCE tiposerv_seq
+    START WITH 100
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+--Instalación y balanceo de neumáticos--
+
+insert into tipo_servicio
+values(tiposerv_seq.nextval,'Instalación y balanceo de neumáticos','20240702-1',102);
+
+---insertar datos forma pago---(Tarea realizada en 0.087seg)
+insert into forma_pago
+values(1,'Efectivo');
+insert into forma_pago
+values(2,'Debito');
+insert into forma_pago
+values(3,'Credito');
+
+insert into tipo_documento
+values(1,'Factura');
+insert into tipo_documento
+values(2,'Boleta');
+insert into tipo_documento
+values(3,'Nota de credito');

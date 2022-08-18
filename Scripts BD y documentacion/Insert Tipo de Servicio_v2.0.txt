@@ -1,0 +1,53 @@
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Cambio de aceite',15000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Ajuste de motor',25000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Cambio de pastillas de freno',30000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Scanner',20000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Instalación y balanceo de neumáticos',30000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Alineación neumáticos',15000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Análisis de gases',20000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Cambio de filtro bencina',15000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Cambio de filtro aire',15000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Reparación caja mecánica',150000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Reparación caja automática',300000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Reparación diferenciales',80000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Reparación Tren delantero',140000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Reparación aire acondicionado',70000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Reparación y cambio de embrague',450000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Reparación de turbos',200000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Pintura y desabolladura',300000);
+
+INSERT INTO TIPO_SERVICIO
+VALUES(tiposerv_seq.nextval,'Reparación electrónica',65000);

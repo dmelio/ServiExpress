@@ -1,0 +1,241 @@
+-- Productos EJEMPLO SCRIPT --
+
+
+insert into PRODUCTOS values(producto_seq.nextval, v_codusuario ,v_idproveedor ,v_idtipoprod ,v_nombreprod ,v_marcaprod ,v_descprod ,
+v_fechavenc ,v_precioventa ,v_preciocompra ,v_stock );
+
+insert into productos
+values (producto_seq.nextval,null,101,108,'Shampoo soft wash gel 473ml','Meguiars','Shampoo soft wash gel 473ml',to_date('2025/11/22', 'yyyy/mm/dd'),6290,5199,41);
+
+--INICIO INSERT DE PRODUCTOS--
+
+-- Cambio de aceite --
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Aceite Just Oil 20W50 Mineral Gasolina SG 1/4 Galon','Just Oil','Aceite Just Oil 20W50 Mineral 1QT especialmente diseñado para conseguir una vida duradera del motor.',to_date('2027/10/22', 'yyyy/mm/dd'),2990,890,56);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Aceite TROOP 10w40 Semisintético Gasolina Sn 1 Galón','TROOP','Aceite Troop 10W40 semisintético 1 Gal lubrica las partes metálicas de tu motor.',to_date('2026/08/16', 'yyyy/mm/dd'),10990,8990,25;
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Aceite Lubritek Acea A3/B4 5W40 Sintético Gas/Diésel SM/CF 1 Galon.','LUBRITEK','Aceite Lubritek 5W40 Acea A3 Sintético 1 Gal lubrica las partes metálicas del motor.',to_date('2028/10/05', 'yyyy/mm/dd'),38990,23990,50);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Aceite MOTORLIFE 10w30 Semisintético 1 Qt','MOTORLIFE','Aceite MotorLife 10W30 semisintético 1 QT es un producto creado para el cuidado profundo del motor.',to_date('2025/09/22', 'yyyy/mm/dd'),2990,790,52);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Aceite CASTROL Edge 5w30 Sintético Sn/acea-c3 4 Litro.','Lubricante Castrol EDGE 5W30 de última generación siendo ideal para motorización asiática.','',to_date('2029/06/15', 'yyyy/mm/dd'),44990,32990,15);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Aceite Lubritek 15W-40 CK-4 Semi-Sintético Diesel/Bencina DPF 1 Galón','LUBRITEK','Aceite Lubritek 15W-40 CK-4 Semi-Sintético Diesel/Bencina DPF 1 Galón.',to_date('2029/07/08', 'yyyy/mm/dd'),19990,12990,13);
+
+
+-- Cambio de pastillas de freno--
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Pastillas de freno trasera DGP','DGP','Pastillas de Freno Trasera DGP fabricadas con un compuesto semimetálico blando.',to_date('2027/10/22', 'yyyy/mm/dd'),13990,9990,17);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Pastillas de Freno Delantera DGP','DGP','Pastillas de Freno Delantera DGP,genera la fricción necesaria para reducir tu velocidad o detenerte.',to_date('2024/10/19', 'yyyy/mm/dd'),13490,7490,8);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Pastillas de freno trasera DGP','DGP','Pastillas de Freno Trasera DGP, esencial dentro del sistema de seguridad y conducción del vehículo.',to_date('2029/10/22', 'yyyy/mm/dd'),7990,3990,10);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Pastillas de freno trasera DGP','DGP','Pastillas de Freno Trasera DGP. ',to_date('2027/10/22', 'yyyy/mm/dd'),15490,9990,60);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Pastillas de Freno Trasera DGP','DGP','Pastillas de Freno Trasera DGP. Respalda y garantiza Derco.',to_date('2024/06/22', 'yyyy/mm/dd'),15990,10990,47);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Pastillas de Freno Trasera DGP','DGP','Pastillas de Freno Trasera DGP. Respalda y garantiza Derco.',to_date('2029/05/17', 'yyyy/mm/dd'),13990,11990,46);
+
+-- Instalación y balanceo de neumáticos--
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Neumatico 185/65R14 HANKOOK H724 ARO 14','HANKOOK','Producto para brindar un mejor contacto entre tu automóvil y el pavimento, mejorando tu experiencia.',to_date('2028/10/13', 'yyyy/mm/dd'),43990,30990,12);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Neumatico 175/65r14 HANKOOK H724 aro 14','HANKOOK','Producto para brindar un mejor contacto entre tu automóvil y el pavimento, mejorando tu experiencia.',to_date('2026/10/12', 'yyyy/mm/dd'),39990,27990,23);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Neumatico 215/70R16 HANKOOK RA08 ARO 16','HANKOOK','Neumático de aro 16 de verano que posee tres ranuras en zigzag, para superficies secas.',to_date('2026/10/06', 'yyyy/mm/dd'),109990,89990,8);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Neumatico 205/55R16 HANKOOK K425 ARO 16','HANKOOK','Producto pensado para mejorar tu experiencia al volante.',to_date('2027/10/22', 'yyyy/mm/dd'),79990,69990,15);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Neumatico 235/65R17 LAUFENN LD01 ARO 17','LAUFENN','Producto pensado para mejorar tu experiencia al volante.',to_date('2029/10/09', 'yyyy/mm/dd'),108490,89990,23);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Neumatico 215/60R17 HANKOOK RA33 ARO 17','HANKOOK','Producto premium que entrega mayor rendimiento sobre pavimento mojado.',to_date('2027/04/18', 'yyyy/mm/dd'),119990,99990,10);
+
+-- Cambio de filtro de bencina --
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Filtro de Bomba de Bencina MTUN003910','OTRAS MARCAS','Filtra las impurezas que puedan pasar a la bomba de bencina.',to_date('2027/10/22', 'yyyy/mm/dd'),590,99,27);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Filtro Bomba Bencina MTUN003915 FBB-013','OTRAS MARCAS','Su función es la de filtrar las impurezas que puedan pasar a la bomba de bencina.',to_date('2023/01/12', 'yyyy/mm/dd'),1490,890,23);
+
+
+-- Cambio de filtro de aire--
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Filtro de Aire HYUNDAI Original','HYUNDAI','Filtro de aire es uno de los artículos indispensables para el buen funcionamiento del motor y de tu vehículo.',to_date('2027/10/22', 'yyyy/mm/dd'),12490,8990,10);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Filtro de Aire C2964 MANN FILTER.',',MANN FILTER','Filtro de Aire MANN-FILTER artículo indispensable para el buen funcionamiento del motor.',to_date('2025/06/22', 'yyyy/mm/dd'),4990,2890,11);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Filtro de Aire FRAM CA6362','FRAM','Filtro de Aire FRAM artículo indispensable para el buen funcionamiento del motor.',to_date('2027/10/22', 'yyyy/mm/dd'),1990,990,17);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Filtro de Aire KENDALL','KENDALL','Filtro de aire KENDALL es uno de los artículos indispensables para el buen funcionamiento del motor y de tu vehículo.',to_date('2027/08/23', 'yyyy/mm/dd'),6490,3990,15);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Filtro de Aire DGP DFA-3282.','DGP','Este elemento se sitúa al principio del sistema, ya que la vida útil del motor depende de su efectividad y acción inmediata.',to_date('2024/09/22', 'yyyy/mm/dd'),3490,1990,29);
+
+
+-- Reparación caja mecánica y automática --
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Carbones del Motor de Partida SCHUNK 12x19x7 Mm.','SCHUNK','Son los encargados de transmitir la corriente eléctrica desde la batería hacia el rotor.',to_date('2027/10/22', 'yyyy/mm/dd'),490,99,13);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Motor de Partida TROOP 9 Dientes TMP-M3024','TROOP','Este motor tiene la función de mover el motor térmico del automóvil para que se ponga en marcha.',to_date('2029/08/16', 'yyyy/mm/dd'),49990,30990,10);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Motor de Partida 96208783.','OTRAS MARCAS','Motor de partida es la pieza más importante para el proceso de encendido de tu vehículo.',to_date('2026/09/22', 'yyyy/mm/dd'),49990,30990,8);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Kit de Correa de Distribución ONNURI 2 Piezas GBKD-004','ONNURI','Kit Correa de Distribución ONNURI cuenta con las piezas para cuando requieras sustituirla.',to_date('2027/10/22', 'yyyy/mm/dd'),13490,9990,10);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Kits De Correa De Distribución GATES 18058-0','GATES','Tiene una misión clave en el automóvil, es la encargada de sincronizar los tiempos del motor.',to_date('2030/06/08', 'yyyy/mm/dd'),28490,19990,10);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Anillos de Motor C.T.I. 82 Mm. ANI-026','C.T.I','accesorios que te ayudarán a mantener el cilindro hermético y lubricado en todo momento.',to_date('2026/02/09', 'yyyy/mm/dd'),9090,5090,17);
+
+
+-- Reparación diferenciales--
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'','','',to_date('2027/10/22', 'yyyy/mm/dd'),2990,890,56);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'','','',to_date('2027/10/22', 'yyyy/mm/dd'),2990,890,56);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'','','',to_date('2027/10/22', 'yyyy/mm/dd'),2990,890,56);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'','','',to_date('2027/10/22', 'yyyy/mm/dd'),2990,890,56);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'','','',to_date('2027/10/22', 'yyyy/mm/dd'),2990,890,56);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'','','',to_date('2027/10/22', 'yyyy/mm/dd'),2990,890,56);
+
+-- Reparación Tren Delantero --
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Cazoleta MOBIS Delantera Derecha','MOBIS','Sostiene el espiral en los amortiguadores y conecta amortiguador al chasís del vehículo.',to_date('2026/07/03', 'yyyy/mm/dd'),9490,5990,22);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Cazoleta ATSUKI 54320-2w100','ATSUKI','Sostiene el espiral y filtra las vibraciones de la suspensión con respecto a la carrocería.',to_date('2027/11/02', 'yyyy/mm/dd'),9290,6990,8);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Fuelles de cremallera TKE 311957','TKE','Goma encargada de proteger la unión entre la junta axial y la cremallera de dirección.',to_date('2027/10/22', 'yyyy/mm/dd'),3590,1590,14);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'fuelles de cremallera JOCMA','JOCMA,'Goma encargada de proteger la unión entre la junta axial y la cremallera de dirección.',to_date('2025/10/07', 'yyyy/mm/dd'),1090,590,6);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Punta Homocinética GSPGS803007','GSP','Cumple la misión de unir el diferencial y el buje de la rueda.',to_date('2027/10/22', 'yyyy/mm/dd'),14490,9990,56);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Punta Homocinética ATSUKI 26 Estrías','ATSUKI','Cumple la misión de unir el diferencial y el buje de la rueda.',to_date('2026/12/22', 'yyyy/mm/dd'),5090,1990,57);
+
+-- Reparación aire acondicionado --
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Correa 4PK 990 DGP','DGP','Elemento para conectar la polea del motor con la bomba de agua.',to_date('2027/10/22', 'yyyy/mm/dd'),3990,1990,8);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Switch de Electroventilador SANKEI','SANKEI','Termoswitch cuya misión es poner en funcionamiento el ventilador del vehículo.',to_date('2027/10/21', 'yyyy/mm/dd'),5090,1090,32);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Válvula de calefacción 87138','OTRAS MARCAS','Dispositivo utilizado para regular el caudal de agua que va hacia el radiador.',to_date('2028/08/16', 'yyyy/mm/dd'),11990,5990,17);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Bomba de agua DGP GWT64A-DGP','DGP','Encargada de hacer circular el líquido refrigerante hacia el sistema de refigeración del motor.',to_date('2026/10/14', 'yyyy/mm/dd'),13990,9990,10);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Bomba de agua DGP VKPC83428-DGP','DGP','Encargada de hacer circular el líquido refrigerante hacia el sistema de refigeración del motor.',to_date('2025/03/22', 'yyyy/mm/dd'),13990,5990,7);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Termostato TAMA 76.5 Grados Celsius','Responsable de regular de manera adecuada y constante la temperatura del motor.','',to_date('2027/10/22', 'yyyy/mm/dd'),5990,1990,9);
+
+-- Reparación y cambio de embrague --
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Bomba de embrague DJP','DJP','Pieza que hace girar la horquilla del rodamiento de empuje para liberar el disco de embrague.',to_date('2028/11/12', 'yyyy/mm/dd'),14390,7390,23);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Bomba de embrague VALEO','VALEO','Pieza que hace girar la horquilla del rodamiento de empuje para liberar el disco de embrague.',to_date('2027/08/15', 'yyyy/mm/dd'),29990,19990,5);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Cilindro de embrague DOVER 11/16 Pulg','DOVER','Encargado de transmitir la fuerza ejercida en el pedal de embrague.',to_date('2027/10/22', 'yyyy/mm/dd'),8790,5790,6);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Cilindro de embrague PANASIA','PANASIA','Encargado de transmitir la fuerza ejercida en el pedal de embrague.',to_date('2025/06/22', 'yyyy/mm/dd'),12490,7490,5);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Kit de embrague de 3 Piezas SECO','SECO','Kit compuesto disco + prensa + rodamiento.',to_date('2030/09/22', 'yyyy/mm/dd'),59990,39990,5);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Kit de embrague de 3 piezas VALEO','VALEO','Kit compuesto disco + prensa + rodamiento.',to_date('2031/04/19', 'yyyy/mm/dd'),86490,73490,9);
+
+-- Reparación de turbos --
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Turbo BHORKE 28200','BHORKE','Elemento que permite sobrealimentar el flujo y volumen que ingresa al motor a través de la admisión.',to_date('2028/10/13', 'yyyy/mm/dd'),142990,98990,4);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Turbo ATSUKI 28201','ATSUKI','Elemento que permite sobrealimentar el flujo y volumen que ingresa al motor a través de la admisión.',to_date('2029/09/11', 'yyyy/mm/dd'),262990,159990,6);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Turbo ATSUKI 14411','ATSUKI','Elemento que permite sobrealimentar el flujo y volumen que ingresa al motor a través de la admisión.',to_date('2029/06/21', 'yyyy/mm/dd'),163890,99890,7);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Turbo BHORKE 14410','BHORKE','Elemento que permite sobrealimentar el flujo y volumen que ingresa al motor a través de la admisión.',to_date('2027/07/28', 'yyyy/mm/dd'),345990,279990,9);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Turbo BHORKE 28300','BHORKE','Elemento que permite sobrealimentar el flujo y volumen que ingresa al motor a través de la admisión.',to_date('2026/09/20', 'yyyy/mm/dd'),192990,152990,8);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Turbo ATSUKI 144100','ATSUKI','Elemento que permite sobrealimentar el flujo y volumen que ingresa al motor a través de la admisión.',to_date('2029/07/24', 'yyyy/mm/dd'),305990,259990,7);
+
+-- Reparación electrónica --
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Fusible 60 Amperes Amarillo SL 48MM DGP','DGP','Dispositivo de seguridad que protege los elementos electrónicos de tu auto.',to_date('2030/10/23', 'yyyy/mm/dd'),790,190,56); 
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Batería de auto DGP 90AH','DGP','Cumple la función de almacenar la energía eléctrica para luego ser transmitida al motor de partida.',to_date('2030/08/12', 'yyyy/mm/dd'),89990,59990,10);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Sensor de Temperatura del Agua','FAE','Encargado de medir la temperatura del agua',to_date('2028/12/28', 'yyyy/mm/dd'),8990,5990,12);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Relé RALUX 4 Terminales','RALUX','Dispositivo electromecánico que funciona como interruptor.',to_date('2027/06/15', 'yyyy/mm/dd'),2990,1590,18);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Switch de Frenos FAE','FAE','Elemento indispensable en tu vehículo que enciende las luces que advierten a los demás conductores.',to_date('2027/02/16', 'yyyy/mm/dd'),3990,1990,19);
+
+INSERT INTO PRODUCTOS
+VALUES (producto_seq.nextval,null,'Switch de marcha atrás FAE','FAE','Elemento encargado de avisar a los demás conductores que su vehículo está en reversa.',to_date('2026/05/23', 'yyyy/mm/dd'),5290,1290,38);
+
+

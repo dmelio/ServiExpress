@@ -1,0 +1,1924 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DOCUMENTO_TRIBUTARIO">
+          <Key>
+            <PropertyRef Name="ID_DOCUMENTO_TRIB" />
+          </Key>
+          <Property Name="ID_DOCUMENTO_TRIB" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_DE_CREACION" Type="date" />
+          <Property Name="ID_TIPO_DOC" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_SERVICIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_USUARIO_VEND" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="ID_FORMA_PAGO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_CLIENTE" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="TOTAL_PAGAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ESTADO_ORDEN_COMPRA">
+          <Key>
+            <PropertyRef Name="ID_ESTADO_ORDEN" />
+          </Key>
+          <Property Name="ID_ESTADO_ORDEN" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION_ESTADO" Type="varchar2" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FAMILIA_PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_FAMILIA_PRODUCTO" />
+          </Key>
+          <Property Name="ID_FAMILIA_PRODUCTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION_FAMILIA_PROD" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FORMA_PAGO">
+          <Key>
+            <PropertyRef Name="ID_FORMA" />
+          </Key>
+          <Property Name="ID_FORMA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_FORMA" Type="varchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="OPERACIONES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_OP" Type="varchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ORDEN_DE_COMPRA">
+          <Key>
+            <PropertyRef Name="ID_ORDEN" />
+          </Key>
+          <Property Name="ID_ORDEN" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_USUARIO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="ID_PRODUCTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_DE_CREACION" Type="date" Nullable="false" />
+          <Property Name="ID_ESTADO_ORDEN" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MONTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUCTOS">
+          <Key>
+            <PropertyRef Name="ID_PRODUCTO" />
+          </Key>
+          <Property Name="ID_PRODUCTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CODIGO_PRODUCTO" Type="number" Precision="22" Scale="0" />
+          <Property Name="ID_PROVEEDOR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_TIPO_PRODUCTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_PRODUCTO" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="MARCA_PROD" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="DESCRIPCION_PRODUCTO" Type="varchar2" MaxLength="200" />
+          <Property Name="FECHA_VENCIMIENTO" Type="date" />
+          <Property Name="PRECIO_VENTA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="PRECIO_COMPRA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="STOCK" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROVEEDOR">
+          <Key>
+            <PropertyRef Name="ID_PROVEEDOR" />
+          </Key>
+          <Property Name="ID_PROVEEDOR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_EMPRESA" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="RAZON_SOCIAL" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="DIRECCION" Type="varchar2" MaxLength="200" />
+          <Property Name="ID_RUBRO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TELEFONO_CONTACTO" Type="varchar2" MaxLength="12" Nullable="false" />
+          <Property Name="CORREO_CONTACTO" Type="varchar2" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RECEPCION">
+          <Key>
+            <PropertyRef Name="ID_RECEPCION" />
+          </Key>
+          <Property Name="ID_RECEPCION" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_USUARIO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="FECHA_RECEPCION" Type="date" />
+          <Property Name="OBSERVACIONES" Type="varchar2" MaxLength="250" />
+          <Property Name="ID_ORDEN_COMPRA" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RESERVAS">
+          <Key>
+            <PropertyRef Name="ID_RESERVA" />
+          </Key>
+          <Property Name="ID_RESERVA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_RESERVA" Type="date" Nullable="false" />
+          <Property Name="RUT_USUARIO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="NOM_AP_CLIENTE" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="CORREO_USUARIO" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="PATENTE" Type="varchar2" MaxLength="6" Nullable="false" />
+          <Property Name="ID_TIPO_SERVICIO" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ROL_OPERACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_ROL" Type="number" Precision="38" Scale="0" />
+          <Property Name="ID_OP" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ROL_USUARIO">
+          <Key>
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="ID_ROL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_ROL" Type="varchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="RUBRO">
+          <Key>
+            <PropertyRef Name="ID_RUBRO" />
+          </Key>
+          <Property Name="ID_RUBRO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION_RUBRO" Type="varchar2" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SERVICIO">
+          <Key>
+            <PropertyRef Name="ID_SERVICIO" />
+          </Key>
+          <Property Name="ID_SERVICIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_USUARIO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="NOM_AP_USUARIO" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="PATENTE_VEHICULO" Type="varchar2" MaxLength="6" Nullable="false" />
+          <Property Name="ID_TIPO_SERVICIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PROD_VENTA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_MECANICO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="NOMBRE_MECANICO" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="CODIGO_PRODUCTO" Type="number" Precision="20" Scale="0" />
+        </EntityType>
+        <EntityType Name="TIPO_DOCUMENTO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_DOCUMENTO" />
+          </Key>
+          <Property Name="ID_TIPO_DOCUMENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION_TIPO_DOC" Type="varchar2" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_PRODUCTO" />
+          </Key>
+          <Property Name="ID_TIPO_PRODUCTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION_TIPO_PROD" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="ID_FAMILIA_PRODUCTO" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="TIPO_SERVICIO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_SERVICIO" />
+          </Key>
+          <Property Name="ID_TIPO_SERVICIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION_TIPO_SERV" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="PRECIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="RUT_USUARIO" />
+          </Key>
+          <Property Name="RUT_USUARIO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="NOM_AP_USUARIO" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="CORREO" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="PASWD" Type="varchar2" MaxLength="25" Nullable="false" />
+          <Property Name="ID_ROL_USUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DIRECCION_USUARIO" Type="varchar2" MaxLength="200" />
+          <Property Name="TELEFONO_USUARIO" Type="varchar2" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VEHICULOS">
+          <Key>
+            <PropertyRef Name="PATENTE" />
+          </Key>
+          <Property Name="PATENTE" Type="varchar2" MaxLength="6" Nullable="false" />
+          <Property Name="RUT_USUARIO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="MARCA" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="MODELO" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="ANIO" Type="number" Precision="4" Scale="0" />
+        </EntityType>
+        <EntityType Name="VENTA_PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_PRODUCTO_VENTA" />
+          </Key>
+          <Property Name="ID_PRODUCTO_VENTA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PRODUCTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANTIDAD" Type="number" Precision="38" Scale="0" />
+          <Property Name="CODIGO_PRODUCTO" Type="number" Precision="20" Scale="0" />
+        </EntityType>
+        <Association Name="SYS_C008938">
+          <End Role="ORDEN_DE_COMPRA" Type="Self.ORDEN_DE_COMPRA" Multiplicity="1" />
+          <End Role="RECEPCION" Type="Self.RECEPCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDEN_DE_COMPRA">
+              <PropertyRef Name="ID_ORDEN" />
+            </Principal>
+            <Dependent Role="RECEPCION">
+              <PropertyRef Name="ID_ORDEN_COMPRA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008939">
+          <End Role="ESTADO_ORDEN_COMPRA" Type="Self.ESTADO_ORDEN_COMPRA" Multiplicity="1" />
+          <End Role="ORDEN_DE_COMPRA" Type="Self.ORDEN_DE_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO_ORDEN_COMPRA">
+              <PropertyRef Name="ID_ESTADO_ORDEN" />
+            </Principal>
+            <Dependent Role="ORDEN_DE_COMPRA">
+              <PropertyRef Name="ID_ESTADO_ORDEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008940">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="ORDEN_DE_COMPRA" Type="Self.ORDEN_DE_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="RUT_USUARIO" />
+            </Principal>
+            <Dependent Role="ORDEN_DE_COMPRA">
+              <PropertyRef Name="RUT_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008941">
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="1" />
+          <End Role="ORDEN_DE_COMPRA" Type="Self.ORDEN_DE_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTOS">
+              <PropertyRef Name="ID_PRODUCTO" />
+            </Principal>
+            <Dependent Role="ORDEN_DE_COMPRA">
+              <PropertyRef Name="ID_PRODUCTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008942">
+          <End Role="TIPO_PRODUCTO" Type="Self.TIPO_PRODUCTO" Multiplicity="1" />
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_PRODUCTO">
+              <PropertyRef Name="ID_TIPO_PRODUCTO" />
+            </Principal>
+            <Dependent Role="PRODUCTOS">
+              <PropertyRef Name="ID_TIPO_PRODUCTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008943">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="ID_PROVEEDOR" />
+            </Principal>
+            <Dependent Role="PRODUCTOS">
+              <PropertyRef Name="ID_PROVEEDOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008944">
+          <End Role="RUBRO" Type="Self.RUBRO" Multiplicity="1" />
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RUBRO">
+              <PropertyRef Name="ID_RUBRO" />
+            </Principal>
+            <Dependent Role="PROVEEDOR">
+              <PropertyRef Name="ID_RUBRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008945">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="RUT_USUARIO" />
+            </Principal>
+            <Dependent Role="RESERVAS">
+              <PropertyRef Name="RUT_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008947">
+          <End Role="VEHICULOS" Type="Self.VEHICULOS" Multiplicity="1" />
+          <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VEHICULOS">
+              <PropertyRef Name="PATENTE" />
+            </Principal>
+            <Dependent Role="RESERVAS">
+              <PropertyRef Name="PATENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008948">
+          <End Role="VEHICULOS" Type="Self.VEHICULOS" Multiplicity="1" />
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VEHICULOS">
+              <PropertyRef Name="PATENTE" />
+            </Principal>
+            <Dependent Role="SERVICIO">
+              <PropertyRef Name="PATENTE_VEHICULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008949">
+          <End Role="TIPO_SERVICIO" Type="Self.TIPO_SERVICIO" Multiplicity="1" />
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_SERVICIO">
+              <PropertyRef Name="ID_TIPO_SERVICIO" />
+            </Principal>
+            <Dependent Role="SERVICIO">
+              <PropertyRef Name="ID_TIPO_SERVICIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008950">
+          <End Role="VENTA_PRODUCTO" Type="Self.VENTA_PRODUCTO" Multiplicity="1" />
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENTA_PRODUCTO">
+              <PropertyRef Name="ID_PRODUCTO_VENTA" />
+            </Principal>
+            <Dependent Role="SERVICIO">
+              <PropertyRef Name="ID_PROD_VENTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008951">
+          <End Role="FAMILIA_PRODUCTO" Type="Self.FAMILIA_PRODUCTO" Multiplicity="0..1" />
+          <End Role="TIPO_PRODUCTO" Type="Self.TIPO_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FAMILIA_PRODUCTO">
+              <PropertyRef Name="ID_FAMILIA_PRODUCTO" />
+            </Principal>
+            <Dependent Role="TIPO_PRODUCTO">
+              <PropertyRef Name="ID_FAMILIA_PRODUCTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008952">
+          <End Role="ROL_USUARIO" Type="Self.ROL_USUARIO" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL_USUARIO">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ID_ROL_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008953">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="VEHICULOS" Type="Self.VEHICULOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="RUT_USUARIO" />
+            </Principal>
+            <Dependent Role="VEHICULOS">
+              <PropertyRef Name="RUT_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008954">
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="1" />
+          <End Role="VENTA_PRODUCTO" Type="Self.VENTA_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTOS">
+              <PropertyRef Name="ID_PRODUCTO" />
+            </Principal>
+            <Dependent Role="VENTA_PRODUCTO">
+              <PropertyRef Name="ID_PRODUCTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008963">
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="1" />
+          <End Role="DOCUMENTO_TRIBUTARIO" Type="Self.DOCUMENTO_TRIBUTARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIO">
+              <PropertyRef Name="ID_SERVICIO" />
+            </Principal>
+            <Dependent Role="DOCUMENTO_TRIBUTARIO">
+              <PropertyRef Name="ID_SERVICIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008964">
+          <End Role="FORMA_PAGO" Type="Self.FORMA_PAGO" Multiplicity="1" />
+          <End Role="DOCUMENTO_TRIBUTARIO" Type="Self.DOCUMENTO_TRIBUTARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORMA_PAGO">
+              <PropertyRef Name="ID_FORMA" />
+            </Principal>
+            <Dependent Role="DOCUMENTO_TRIBUTARIO">
+              <PropertyRef Name="ID_FORMA_PAGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008965">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="DOCUMENTO_TRIBUTARIO" Type="Self.DOCUMENTO_TRIBUTARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="RUT_USUARIO" />
+            </Principal>
+            <Dependent Role="DOCUMENTO_TRIBUTARIO">
+              <PropertyRef Name="RUT_USUARIO_VEND" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008966">
+          <End Role="TIPO_DOCUMENTO" Type="Self.TIPO_DOCUMENTO" Multiplicity="1" />
+          <End Role="DOCUMENTO_TRIBUTARIO" Type="Self.DOCUMENTO_TRIBUTARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_DOCUMENTO">
+              <PropertyRef Name="ID_TIPO_DOCUMENTO" />
+            </Principal>
+            <Dependent Role="DOCUMENTO_TRIBUTARIO">
+              <PropertyRef Name="ID_TIPO_DOC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008973">
+          <End Role="ROL_USUARIO" Type="Self.ROL_USUARIO" Multiplicity="0..1" />
+          <End Role="ROL_OPERACION" Type="Self.ROL_OPERACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL_USUARIO">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="ROL_OPERACION">
+              <PropertyRef Name="ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008974">
+          <End Role="OPERACIONES" Type="Self.OPERACIONES" Multiplicity="0..1" />
+          <End Role="ROL_OPERACION" Type="Self.ROL_OPERACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OPERACIONES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ROL_OPERACION">
+              <PropertyRef Name="ID_OP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008987">
+          <End Role="TIPO_SERVICIO" Type="Self.TIPO_SERVICIO" Multiplicity="0..1" />
+          <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_SERVICIO">
+              <PropertyRef Name="ID_TIPO_SERVICIO" />
+            </Principal>
+            <Dependent Role="RESERVAS">
+              <PropertyRef Name="ID_TIPO_SERVICIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_CREATE_DOCTRIB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_FECHACREA" Type="date" Mode="In" />
+          <Parameter Name="V_IDTIPODOC" Type="number" Mode="In" />
+          <Parameter Name="V_IDSERVICIO" Type="number" Mode="In" />
+          <Parameter Name="V_RUTUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_IDFORMAPAGO" Type="number" Mode="In" />
+          <Parameter Name="V_NOMCLIENTE" Type="varchar2" Mode="In" />
+          <Parameter Name="V_RUTCLIENTE" Type="varchar2" Mode="In" />
+          <Parameter Name="V_TOTALPAGAR" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_CREATE_ODC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_RUTUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_IDPRODUCTO" Type="number" Mode="In" />
+          <Parameter Name="V_FECHACREACION" Type="date" Mode="In" />
+          <Parameter Name="V_IDESTADOORDEN" Type="number" Mode="In" />
+          <Parameter Name="V_MONTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_CREATE_PRODUCTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_CODPROD" Type="number" Mode="In" />
+          <Parameter Name="V_IDPROVEEDOR" Type="number" Mode="In" />
+          <Parameter Name="V_IDTIPOPROD" Type="number" Mode="In" />
+          <Parameter Name="V_NOMBREPROD" Type="varchar2" Mode="In" />
+          <Parameter Name="V_MARCAPROD" Type="varchar2" Mode="In" />
+          <Parameter Name="V_DESCPROD" Type="varchar2" Mode="In" />
+          <Parameter Name="V_FECHAVENC" Type="date" Mode="In" />
+          <Parameter Name="V_PRECIOVENTA" Type="number" Mode="In" />
+          <Parameter Name="V_PRECIOCOMPRA" Type="number" Mode="In" />
+          <Parameter Name="V_STOCK" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_CREATE_PROVEEDOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_RUTEMPRESA" Type="varchar2" Mode="In" />
+          <Parameter Name="V_RAZONSOCIAL" Type="varchar2" Mode="In" />
+          <Parameter Name="V_DIRECCION" Type="varchar2" Mode="In" />
+          <Parameter Name="V_IDRUBRO" Type="number" Mode="In" />
+          <Parameter Name="V_TELEFONOCONTACTO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_CORREOCONTACTO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_CREATE_RECEPCION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_RUTUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_FECHARECEP" Type="date" Mode="In" />
+          <Parameter Name="V_OBSERVACIONES" Type="varchar2" Mode="In" />
+          <Parameter Name="V_IDORDENCOMPRA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_CREATE_RESERVAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_FECHARESERVA" Type="date" Mode="In" />
+          <Parameter Name="V_RUTUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_NOMBRECLIE" Type="varchar2" Mode="In" />
+          <Parameter Name="V_CORREOUSU" Type="varchar2" Mode="In" />
+          <Parameter Name="V_PATENTE" Type="varchar2" Mode="In" />
+          <Parameter Name="V_IDTIPOSERVICIO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_CREATE_RUBRO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_DESCRUBRO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_CREATE_SERVICIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_RUTUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_NOMAPUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_PATENTE" Type="varchar2" Mode="In" />
+          <Parameter Name="V_IDTIPOSERV" Type="number" Mode="In" />
+          <Parameter Name="V_IDPRODVENT" Type="number" Mode="In" />
+          <Parameter Name="V_RUTMECANICO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_NOMMEC" Type="varchar2" Mode="In" />
+          <Parameter Name="V_CODPRODUCTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_CREATE_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_RUTUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_NOMAPUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_CORREO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_PASWD" Type="varchar2" Mode="In" />
+          <Parameter Name="V_IDROL" Type="number" Mode="In" />
+          <Parameter Name="V_DIRECCIONUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_TELEFONOUSUARIO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_CREATE_VEHICULO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_PATENTE" Type="varchar2" Mode="In" />
+          <Parameter Name="V_RUTUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_MARCA" Type="varchar2" Mode="In" />
+          <Parameter Name="V_MODELO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_ANIO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_CREATE_VPRODUCTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDPRODUCTO" Type="number" Mode="In" />
+          <Parameter Name="V_CANTIDAD" Type="number" Mode="In" />
+          <Parameter Name="V_CODPRODUCTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_DOCTRIB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDDOCTRIB" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_ODC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDORDEN" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_PRODUCTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDPRODUCTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_PROVEEDOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDPROVEEDOR" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_RECEPCION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDRECEPCION" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_RESERVAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDRESERVAS" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_RUBRO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDRUBRO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_SERVICIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDSERVICIO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_RUTUSUARIO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_VEHICULO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_PATENTE" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_DELETE_VPRODUCTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDPRODVENTA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_UPDATE_DOCTRIB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDDOCTRIB" Type="number" Mode="In" />
+          <Parameter Name="V_FECHACREA" Type="date" Mode="In" />
+          <Parameter Name="V_IDTIPODOC" Type="number" Mode="In" />
+          <Parameter Name="V_IDSERVICIO" Type="number" Mode="In" />
+          <Parameter Name="V_RUTUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_IDFORMAPAGO" Type="number" Mode="In" />
+          <Parameter Name="V_NOMCLIENTE" Type="varchar2" Mode="In" />
+          <Parameter Name="V_RUTCLIENTE" Type="varchar2" Mode="In" />
+          <Parameter Name="V_TOTALPAGAR" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_UPDATE_ODC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDORDEN" Type="number" Mode="In" />
+          <Parameter Name="V_RUTUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_IDPRODUCTO" Type="number" Mode="In" />
+          <Parameter Name="V_FECHACREACION" Type="date" Mode="In" />
+          <Parameter Name="V_IDESTADOORDEN" Type="number" Mode="In" />
+          <Parameter Name="V_MONTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_UPDATE_PRODUCTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDPRODUCTO" Type="number" Mode="In" />
+          <Parameter Name="V_CODUSUARIO" Type="number" Mode="In" />
+          <Parameter Name="V_IDPROVEEDOR" Type="number" Mode="In" />
+          <Parameter Name="V_IDTIPOPROD" Type="number" Mode="In" />
+          <Parameter Name="V_NOMBREPROD" Type="varchar2" Mode="In" />
+          <Parameter Name="V_MARCAPROD" Type="varchar2" Mode="In" />
+          <Parameter Name="V_DESCPROD" Type="varchar2" Mode="In" />
+          <Parameter Name="V_FECHAVENC" Type="date" Mode="In" />
+          <Parameter Name="V_PRECIOVENTA" Type="number" Mode="In" />
+          <Parameter Name="V_PRECIOCOMPRA" Type="number" Mode="In" />
+          <Parameter Name="V_STOCK" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_UPDATE_PROVEEDOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDPROVEEDOR" Type="number" Mode="In" />
+          <Parameter Name="V_RUTEMPRESA" Type="varchar2" Mode="In" />
+          <Parameter Name="V_RAZONSOCIAL" Type="varchar2" Mode="In" />
+          <Parameter Name="V_DIRECCION" Type="varchar2" Mode="In" />
+          <Parameter Name="V_IDRUBRO" Type="number" Mode="In" />
+          <Parameter Name="V_TELEFONOCONTACTO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_CORREOCONTACTO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_UPDATE_RECEPCION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDRECEPCION" Type="number" Mode="In" />
+          <Parameter Name="V_RUTUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_FECHARECEP" Type="date" Mode="In" />
+          <Parameter Name="V_OBSERVACIONES" Type="varchar2" Mode="In" />
+          <Parameter Name="V_IDORDENCOMPRA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_UPDATE_RESERVAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDRESERVAS" Type="number" Mode="In" />
+          <Parameter Name="V_FECHARESERVA" Type="date" Mode="In" />
+          <Parameter Name="V_RUTUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_NOMBRECLIE" Type="varchar2" Mode="In" />
+          <Parameter Name="V_CORREOUSU" Type="varchar2" Mode="In" />
+          <Parameter Name="V_PATENTE" Type="varchar2" Mode="In" />
+          <Parameter Name="V_IDTIPOSERVICIO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_UPDATE_RUBRO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDRUBRO" Type="number" Mode="In" />
+          <Parameter Name="V_DESCRUBRO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_UPDATE_SERVICIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDSERVICIO" Type="number" Mode="In" />
+          <Parameter Name="V_RUTUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_NOMAPUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_PATENTE" Type="varchar2" Mode="In" />
+          <Parameter Name="V_IDTIPOSERV" Type="number" Mode="In" />
+          <Parameter Name="V_IDPRODVENT" Type="number" Mode="In" />
+          <Parameter Name="V_RUTMECANICO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_NOMMEC" Type="varchar2" Mode="In" />
+          <Parameter Name="V_CODPRODUCTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_UPDATE_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_RUTUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_NOMBREUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_CORREO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_PASWD" Type="varchar2" Mode="In" />
+          <Parameter Name="V_IDROL" Type="number" Mode="In" />
+          <Parameter Name="V_DIRECCIONUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_TELEFONOUSUARIO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_UPDATE_VEHICULO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_PATENTE" Type="varchar2" Mode="In" />
+          <Parameter Name="V_RUTUSUARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_MARCA" Type="varchar2" Mode="In" />
+          <Parameter Name="V_MODELO" Type="varchar2" Mode="In" />
+          <Parameter Name="V_ANIO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_UPDATE_VPRODUCTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="SERVIE3">
+          <Parameter Name="V_IDPRODVENTA" Type="number" Mode="In" />
+          <Parameter Name="V_IDPRODUCTO" Type="number" Mode="In" />
+          <Parameter Name="V_CANTIDAD" Type="number" Mode="In" />
+          <Parameter Name="V_CODPRODUCTO" Type="number" Mode="In" />
+        </Function>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="DOCUMENTO_TRIBUTARIO" EntityType="Self.DOCUMENTO_TRIBUTARIO" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="ESTADO_ORDEN_COMPRA" EntityType="Self.ESTADO_ORDEN_COMPRA" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="FAMILIA_PRODUCTO" EntityType="Self.FAMILIA_PRODUCTO" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="FORMA_PAGO" EntityType="Self.FORMA_PAGO" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="OPERACIONES" EntityType="Self.OPERACIONES" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="ORDEN_DE_COMPRA" EntityType="Self.ORDEN_DE_COMPRA" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="PRODUCTOS" EntityType="Self.PRODUCTOS" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="RECEPCION" EntityType="Self.RECEPCION" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="RESERVAS" EntityType="Self.RESERVAS" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="ROL_OPERACION" EntityType="Self.ROL_OPERACION" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="ROL_USUARIO" EntityType="Self.ROL_USUARIO" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="RUBRO" EntityType="Self.RUBRO" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="TIPO_DOCUMENTO" EntityType="Self.TIPO_DOCUMENTO" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="TIPO_PRODUCTO" EntityType="Self.TIPO_PRODUCTO" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="TIPO_SERVICIO" EntityType="Self.TIPO_SERVICIO" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="VEHICULOS" EntityType="Self.VEHICULOS" Schema="SERVIE3" store:Type="Tables" />
+          <EntitySet Name="VENTA_PRODUCTO" EntityType="Self.VENTA_PRODUCTO" Schema="SERVIE3" store:Type="Tables" />
+          <AssociationSet Name="SYS_C008938" Association="Self.SYS_C008938">
+            <End Role="ORDEN_DE_COMPRA" EntitySet="ORDEN_DE_COMPRA" />
+            <End Role="RECEPCION" EntitySet="RECEPCION" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008939" Association="Self.SYS_C008939">
+            <End Role="ESTADO_ORDEN_COMPRA" EntitySet="ESTADO_ORDEN_COMPRA" />
+            <End Role="ORDEN_DE_COMPRA" EntitySet="ORDEN_DE_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008940" Association="Self.SYS_C008940">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="ORDEN_DE_COMPRA" EntitySet="ORDEN_DE_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008941" Association="Self.SYS_C008941">
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+            <End Role="ORDEN_DE_COMPRA" EntitySet="ORDEN_DE_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008942" Association="Self.SYS_C008942">
+            <End Role="TIPO_PRODUCTO" EntitySet="TIPO_PRODUCTO" />
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008943" Association="Self.SYS_C008943">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008944" Association="Self.SYS_C008944">
+            <End Role="RUBRO" EntitySet="RUBRO" />
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008945" Association="Self.SYS_C008945">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="RESERVAS" EntitySet="RESERVAS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008947" Association="Self.SYS_C008947">
+            <End Role="VEHICULOS" EntitySet="VEHICULOS" />
+            <End Role="RESERVAS" EntitySet="RESERVAS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008948" Association="Self.SYS_C008948">
+            <End Role="VEHICULOS" EntitySet="VEHICULOS" />
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008949" Association="Self.SYS_C008949">
+            <End Role="TIPO_SERVICIO" EntitySet="TIPO_SERVICIO" />
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008950" Association="Self.SYS_C008950">
+            <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008951" Association="Self.SYS_C008951">
+            <End Role="FAMILIA_PRODUCTO" EntitySet="FAMILIA_PRODUCTO" />
+            <End Role="TIPO_PRODUCTO" EntitySet="TIPO_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008952" Association="Self.SYS_C008952">
+            <End Role="ROL_USUARIO" EntitySet="ROL_USUARIO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008953" Association="Self.SYS_C008953">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="VEHICULOS" EntitySet="VEHICULOS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008954" Association="Self.SYS_C008954">
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+            <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008963" Association="Self.SYS_C008963">
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+            <End Role="DOCUMENTO_TRIBUTARIO" EntitySet="DOCUMENTO_TRIBUTARIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008964" Association="Self.SYS_C008964">
+            <End Role="FORMA_PAGO" EntitySet="FORMA_PAGO" />
+            <End Role="DOCUMENTO_TRIBUTARIO" EntitySet="DOCUMENTO_TRIBUTARIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008965" Association="Self.SYS_C008965">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="DOCUMENTO_TRIBUTARIO" EntitySet="DOCUMENTO_TRIBUTARIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008966" Association="Self.SYS_C008966">
+            <End Role="TIPO_DOCUMENTO" EntitySet="TIPO_DOCUMENTO" />
+            <End Role="DOCUMENTO_TRIBUTARIO" EntitySet="DOCUMENTO_TRIBUTARIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008973" Association="Self.SYS_C008973">
+            <End Role="ROL_USUARIO" EntitySet="ROL_USUARIO" />
+            <End Role="ROL_OPERACION" EntitySet="ROL_OPERACION" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008974" Association="Self.SYS_C008974">
+            <End Role="OPERACIONES" EntitySet="OPERACIONES" />
+            <End Role="ROL_OPERACION" EntitySet="ROL_OPERACION" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008987" Association="Self.SYS_C008987">
+            <End Role="TIPO_SERVICIO" EntitySet="TIPO_SERVICIO" />
+            <End Role="RESERVAS" EntitySet="RESERVAS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DOCUMENTO_TRIBUTARIO">
+          <Key>
+            <PropertyRef Name="ID_DOCUMENTO_TRIB" />
+          </Key>
+          <Property Name="ID_DOCUMENTO_TRIB" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_DE_CREACION" Type="DateTime" />
+          <Property Name="ID_TIPO_DOC" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_SERVICIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_USUARIO_VEND" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_FORMA_PAGO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_CLIENTE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TOTAL_PAGAR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="SERVICIO" Relationship="Self.SYS_C008963" FromRole="DOCUMENTO_TRIBUTARIO" ToRole="SERVICIO" />
+          <NavigationProperty Name="FORMA_PAGO" Relationship="Self.SYS_C008964" FromRole="DOCUMENTO_TRIBUTARIO" ToRole="FORMA_PAGO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.SYS_C008965" FromRole="DOCUMENTO_TRIBUTARIO" ToRole="USUARIO" />
+          <NavigationProperty Name="TIPO_DOCUMENTO" Relationship="Self.SYS_C008966" FromRole="DOCUMENTO_TRIBUTARIO" ToRole="TIPO_DOCUMENTO" />
+        </EntityType>
+        <EntityType Name="ESTADO_ORDEN_COMPRA">
+          <Key>
+            <PropertyRef Name="ID_ESTADO_ORDEN" />
+          </Key>
+          <Property Name="ID_ESTADO_ORDEN" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION_ESTADO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ORDEN_DE_COMPRA" Relationship="Self.SYS_C008939" FromRole="ESTADO_ORDEN_COMPRA" ToRole="ORDEN_DE_COMPRA" />
+        </EntityType>
+        <EntityType Name="FAMILIA_PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_FAMILIA_PRODUCTO" />
+          </Key>
+          <Property Name="ID_FAMILIA_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION_FAMILIA_PROD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TIPO_PRODUCTO" Relationship="Self.SYS_C008951" FromRole="FAMILIA_PRODUCTO" ToRole="TIPO_PRODUCTO" />
+        </EntityType>
+        <EntityType Name="FORMA_PAGO">
+          <Key>
+            <PropertyRef Name="ID_FORMA" />
+          </Key>
+          <Property Name="ID_FORMA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_FORMA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DOCUMENTO_TRIBUTARIO" Relationship="Self.SYS_C008964" FromRole="FORMA_PAGO" ToRole="DOCUMENTO_TRIBUTARIO" />
+        </EntityType>
+        <EntityType Name="OPERACIONES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_OP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ROL_OPERACION" Relationship="Self.SYS_C008974" FromRole="OPERACIONES" ToRole="ROL_OPERACION" />
+        </EntityType>
+        <EntityType Name="ORDEN_DE_COMPRA">
+          <Key>
+            <PropertyRef Name="ID_ORDEN" />
+          </Key>
+          <Property Name="ID_ORDEN" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_USUARIO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_DE_CREACION" Type="DateTime" Nullable="false" />
+          <Property Name="ID_ESTADO_ORDEN" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MONTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="ESTADO_ORDEN_COMPRA" Relationship="Self.SYS_C008939" FromRole="ORDEN_DE_COMPRA" ToRole="ESTADO_ORDEN_COMPRA" />
+          <NavigationProperty Name="RECEPCION" Relationship="Self.SYS_C008938" FromRole="ORDEN_DE_COMPRA" ToRole="RECEPCION" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.SYS_C008940" FromRole="ORDEN_DE_COMPRA" ToRole="USUARIO" />
+          <NavigationProperty Name="PRODUCTOS" Relationship="Self.SYS_C008941" FromRole="ORDEN_DE_COMPRA" ToRole="PRODUCTOS" />
+        </EntityType>
+        <EntityType Name="PRODUCTOS">
+          <Key>
+            <PropertyRef Name="ID_PRODUCTO" />
+          </Key>
+          <Property Name="ID_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CODIGO_PRODUCTO" Type="Decimal" Precision="22" Scale="0" />
+          <Property Name="ID_PROVEEDOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_TIPO_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_PRODUCTO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MARCA_PROD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPCION_PRODUCTO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_VENCIMIENTO" Type="DateTime" />
+          <Property Name="PRECIO_VENTA" Type="Int32" Nullable="false" />
+          <Property Name="PRECIO_COMPRA" Type="Int32" Nullable="false" />
+          <Property Name="STOCK" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ORDEN_DE_COMPRA" Relationship="Self.SYS_C008941" FromRole="PRODUCTOS" ToRole="ORDEN_DE_COMPRA" />
+          <NavigationProperty Name="TIPO_PRODUCTO" Relationship="Self.SYS_C008942" FromRole="PRODUCTOS" ToRole="TIPO_PRODUCTO" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="Self.SYS_C008943" FromRole="PRODUCTOS" ToRole="PROVEEDOR" />
+          <NavigationProperty Name="VENTA_PRODUCTO" Relationship="Self.SYS_C008954" FromRole="PRODUCTOS" ToRole="VENTA_PRODUCTO" />
+        </EntityType>
+        <EntityType Name="PROVEEDOR">
+          <Key>
+            <PropertyRef Name="ID_PROVEEDOR" />
+          </Key>
+          <Property Name="ID_PROVEEDOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_EMPRESA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RAZON_SOCIAL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ID_RUBRO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TELEFONO_CONTACTO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CORREO_CONTACTO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PRODUCTOS" Relationship="Self.SYS_C008943" FromRole="PROVEEDOR" ToRole="PRODUCTOS" />
+          <NavigationProperty Name="RUBRO" Relationship="Self.SYS_C008944" FromRole="PROVEEDOR" ToRole="RUBRO" />
+        </EntityType>
+        <EntityType Name="RECEPCION">
+          <Key>
+            <PropertyRef Name="ID_RECEPCION" />
+          </Key>
+          <Property Name="ID_RECEPCION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_USUARIO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHA_RECEPCION" Type="DateTime" />
+          <Property Name="OBSERVACIONES" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ID_ORDEN_COMPRA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="ORDEN_DE_COMPRA" Relationship="Self.SYS_C008938" FromRole="RECEPCION" ToRole="ORDEN_DE_COMPRA" />
+        </EntityType>
+        <EntityType Name="RESERVAS">
+          <Key>
+            <PropertyRef Name="ID_RESERVA" />
+          </Key>
+          <Property Name="ID_RESERVA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_RESERVA" Type="DateTime" Nullable="false" />
+          <Property Name="RUT_USUARIO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOM_AP_CLIENTE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CORREO_USUARIO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PATENTE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_TIPO_SERVICIO" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.SYS_C008945" FromRole="RESERVAS" ToRole="USUARIO" />
+          <NavigationProperty Name="VEHICULOS" Relationship="Self.SYS_C008947" FromRole="RESERVAS" ToRole="VEHICULOS" />
+          <NavigationProperty Name="TIPO_SERVICIO" Relationship="Self.SYS_C008987" FromRole="RESERVAS" ToRole="TIPO_SERVICIO" />
+        </EntityType>
+        <EntityType Name="ROL_OPERACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_ROL" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ID_OP" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="OPERACIONES" Relationship="Self.SYS_C008974" FromRole="ROL_OPERACION" ToRole="OPERACIONES" />
+          <NavigationProperty Name="ROL_USUARIO" Relationship="Self.SYS_C008973" FromRole="ROL_OPERACION" ToRole="ROL_USUARIO" />
+        </EntityType>
+        <EntityType Name="ROL_USUARIO">
+          <Key>
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="ID_ROL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_ROL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ROL_OPERACION" Relationship="Self.SYS_C008973" FromRole="ROL_USUARIO" ToRole="ROL_OPERACION" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.SYS_C008952" FromRole="ROL_USUARIO" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="RUBRO">
+          <Key>
+            <PropertyRef Name="ID_RUBRO" />
+          </Key>
+          <Property Name="ID_RUBRO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION_RUBRO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="Self.SYS_C008944" FromRole="RUBRO" ToRole="PROVEEDOR" />
+        </EntityType>
+        <EntityType Name="SERVICIO">
+          <Key>
+            <PropertyRef Name="ID_SERVICIO" />
+          </Key>
+          <Property Name="ID_SERVICIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_USUARIO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOM_AP_USUARIO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PATENTE_VEHICULO" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_TIPO_SERVICIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PROD_VENTA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_MECANICO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE_MECANICO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CODIGO_PRODUCTO" Type="Decimal" Precision="20" Scale="0" />
+          <NavigationProperty Name="DOCUMENTO_TRIBUTARIO" Relationship="Self.SYS_C008963" FromRole="SERVICIO" ToRole="DOCUMENTO_TRIBUTARIO" />
+          <NavigationProperty Name="VEHICULOS" Relationship="Self.SYS_C008948" FromRole="SERVICIO" ToRole="VEHICULOS" />
+          <NavigationProperty Name="TIPO_SERVICIO" Relationship="Self.SYS_C008949" FromRole="SERVICIO" ToRole="TIPO_SERVICIO" />
+          <NavigationProperty Name="VENTA_PRODUCTO" Relationship="Self.SYS_C008950" FromRole="SERVICIO" ToRole="VENTA_PRODUCTO" />
+        </EntityType>
+        <EntityType Name="TIPO_DOCUMENTO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_DOCUMENTO" />
+          </Key>
+          <Property Name="ID_TIPO_DOCUMENTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION_TIPO_DOC" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DOCUMENTO_TRIBUTARIO" Relationship="Self.SYS_C008966" FromRole="TIPO_DOCUMENTO" ToRole="DOCUMENTO_TRIBUTARIO" />
+        </EntityType>
+        <EntityType Name="TIPO_PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_PRODUCTO" />
+          </Key>
+          <Property Name="ID_TIPO_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION_TIPO_PROD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_FAMILIA_PRODUCTO" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="FAMILIA_PRODUCTO" Relationship="Self.SYS_C008951" FromRole="TIPO_PRODUCTO" ToRole="FAMILIA_PRODUCTO" />
+          <NavigationProperty Name="PRODUCTOS" Relationship="Self.SYS_C008942" FromRole="TIPO_PRODUCTO" ToRole="PRODUCTOS" />
+        </EntityType>
+        <EntityType Name="TIPO_SERVICIO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_SERVICIO" />
+          </Key>
+          <Property Name="ID_TIPO_SERVICIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION_TIPO_SERV" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRECIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="RESERVAS" Relationship="Self.SYS_C008987" FromRole="TIPO_SERVICIO" ToRole="RESERVAS" />
+          <NavigationProperty Name="SERVICIO" Relationship="Self.SYS_C008949" FromRole="TIPO_SERVICIO" ToRole="SERVICIO" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="RUT_USUARIO" />
+          </Key>
+          <Property Name="RUT_USUARIO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOM_AP_USUARIO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CORREO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASWD" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_ROL_USUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DIRECCION_USUARIO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO_USUARIO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DOCUMENTO_TRIBUTARIO" Relationship="Self.SYS_C008965" FromRole="USUARIO" ToRole="DOCUMENTO_TRIBUTARIO" />
+          <NavigationProperty Name="ORDEN_DE_COMPRA" Relationship="Self.SYS_C008940" FromRole="USUARIO" ToRole="ORDEN_DE_COMPRA" />
+          <NavigationProperty Name="RESERVAS" Relationship="Self.SYS_C008945" FromRole="USUARIO" ToRole="RESERVAS" />
+          <NavigationProperty Name="ROL_USUARIO" Relationship="Self.SYS_C008952" FromRole="USUARIO" ToRole="ROL_USUARIO" />
+          <NavigationProperty Name="VEHICULOS" Relationship="Self.SYS_C008953" FromRole="USUARIO" ToRole="VEHICULOS" />
+        </EntityType>
+        <EntityType Name="VEHICULOS">
+          <Key>
+            <PropertyRef Name="PATENTE" />
+          </Key>
+          <Property Name="PATENTE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RUT_USUARIO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MARCA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MODELO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ANIO" Type="Int16" />
+          <NavigationProperty Name="RESERVAS" Relationship="Self.SYS_C008947" FromRole="VEHICULOS" ToRole="RESERVAS" />
+          <NavigationProperty Name="SERVICIO" Relationship="Self.SYS_C008948" FromRole="VEHICULOS" ToRole="SERVICIO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.SYS_C008953" FromRole="VEHICULOS" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="VENTA_PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_PRODUCTO_VENTA" />
+          </Key>
+          <Property Name="ID_PRODUCTO_VENTA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PRODUCTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANTIDAD" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CODIGO_PRODUCTO" Type="Decimal" Precision="20" Scale="0" />
+          <NavigationProperty Name="PRODUCTOS" Relationship="Self.SYS_C008954" FromRole="VENTA_PRODUCTO" ToRole="PRODUCTOS" />
+          <NavigationProperty Name="SERVICIO" Relationship="Self.SYS_C008950" FromRole="VENTA_PRODUCTO" ToRole="SERVICIO" />
+        </EntityType>
+        <Association Name="SYS_C008963">
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="1" />
+          <End Role="DOCUMENTO_TRIBUTARIO" Type="Self.DOCUMENTO_TRIBUTARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIO">
+              <PropertyRef Name="ID_SERVICIO" />
+            </Principal>
+            <Dependent Role="DOCUMENTO_TRIBUTARIO">
+              <PropertyRef Name="ID_SERVICIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008964">
+          <End Role="FORMA_PAGO" Type="Self.FORMA_PAGO" Multiplicity="1" />
+          <End Role="DOCUMENTO_TRIBUTARIO" Type="Self.DOCUMENTO_TRIBUTARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORMA_PAGO">
+              <PropertyRef Name="ID_FORMA" />
+            </Principal>
+            <Dependent Role="DOCUMENTO_TRIBUTARIO">
+              <PropertyRef Name="ID_FORMA_PAGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008965">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="DOCUMENTO_TRIBUTARIO" Type="Self.DOCUMENTO_TRIBUTARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="RUT_USUARIO" />
+            </Principal>
+            <Dependent Role="DOCUMENTO_TRIBUTARIO">
+              <PropertyRef Name="RUT_USUARIO_VEND" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008966">
+          <End Role="TIPO_DOCUMENTO" Type="Self.TIPO_DOCUMENTO" Multiplicity="1" />
+          <End Role="DOCUMENTO_TRIBUTARIO" Type="Self.DOCUMENTO_TRIBUTARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_DOCUMENTO">
+              <PropertyRef Name="ID_TIPO_DOCUMENTO" />
+            </Principal>
+            <Dependent Role="DOCUMENTO_TRIBUTARIO">
+              <PropertyRef Name="ID_TIPO_DOC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008939">
+          <End Role="ESTADO_ORDEN_COMPRA" Type="Self.ESTADO_ORDEN_COMPRA" Multiplicity="1" />
+          <End Role="ORDEN_DE_COMPRA" Type="Self.ORDEN_DE_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO_ORDEN_COMPRA">
+              <PropertyRef Name="ID_ESTADO_ORDEN" />
+            </Principal>
+            <Dependent Role="ORDEN_DE_COMPRA">
+              <PropertyRef Name="ID_ESTADO_ORDEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008951">
+          <End Role="FAMILIA_PRODUCTO" Type="Self.FAMILIA_PRODUCTO" Multiplicity="0..1" />
+          <End Role="TIPO_PRODUCTO" Type="Self.TIPO_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FAMILIA_PRODUCTO">
+              <PropertyRef Name="ID_FAMILIA_PRODUCTO" />
+            </Principal>
+            <Dependent Role="TIPO_PRODUCTO">
+              <PropertyRef Name="ID_FAMILIA_PRODUCTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008974">
+          <End Role="OPERACIONES" Type="Self.OPERACIONES" Multiplicity="0..1" />
+          <End Role="ROL_OPERACION" Type="Self.ROL_OPERACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OPERACIONES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ROL_OPERACION">
+              <PropertyRef Name="ID_OP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008938">
+          <End Role="ORDEN_DE_COMPRA" Type="Self.ORDEN_DE_COMPRA" Multiplicity="1" />
+          <End Role="RECEPCION" Type="Self.RECEPCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDEN_DE_COMPRA">
+              <PropertyRef Name="ID_ORDEN" />
+            </Principal>
+            <Dependent Role="RECEPCION">
+              <PropertyRef Name="ID_ORDEN_COMPRA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008940">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="ORDEN_DE_COMPRA" Type="Self.ORDEN_DE_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="RUT_USUARIO" />
+            </Principal>
+            <Dependent Role="ORDEN_DE_COMPRA">
+              <PropertyRef Name="RUT_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008941">
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="1" />
+          <End Role="ORDEN_DE_COMPRA" Type="Self.ORDEN_DE_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTOS">
+              <PropertyRef Name="ID_PRODUCTO" />
+            </Principal>
+            <Dependent Role="ORDEN_DE_COMPRA">
+              <PropertyRef Name="ID_PRODUCTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008942">
+          <End Role="TIPO_PRODUCTO" Type="Self.TIPO_PRODUCTO" Multiplicity="1" />
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_PRODUCTO">
+              <PropertyRef Name="ID_TIPO_PRODUCTO" />
+            </Principal>
+            <Dependent Role="PRODUCTOS">
+              <PropertyRef Name="ID_TIPO_PRODUCTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008943">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="ID_PROVEEDOR" />
+            </Principal>
+            <Dependent Role="PRODUCTOS">
+              <PropertyRef Name="ID_PROVEEDOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008954">
+          <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="1" />
+          <End Role="VENTA_PRODUCTO" Type="Self.VENTA_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTOS">
+              <PropertyRef Name="ID_PRODUCTO" />
+            </Principal>
+            <Dependent Role="VENTA_PRODUCTO">
+              <PropertyRef Name="ID_PRODUCTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008944">
+          <End Role="RUBRO" Type="Self.RUBRO" Multiplicity="1" />
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RUBRO">
+              <PropertyRef Name="ID_RUBRO" />
+            </Principal>
+            <Dependent Role="PROVEEDOR">
+              <PropertyRef Name="ID_RUBRO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008945">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="RUT_USUARIO" />
+            </Principal>
+            <Dependent Role="RESERVAS">
+              <PropertyRef Name="RUT_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008947">
+          <End Role="VEHICULOS" Type="Self.VEHICULOS" Multiplicity="1" />
+          <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VEHICULOS">
+              <PropertyRef Name="PATENTE" />
+            </Principal>
+            <Dependent Role="RESERVAS">
+              <PropertyRef Name="PATENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008987">
+          <End Role="TIPO_SERVICIO" Type="Self.TIPO_SERVICIO" Multiplicity="0..1" />
+          <End Role="RESERVAS" Type="Self.RESERVAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_SERVICIO">
+              <PropertyRef Name="ID_TIPO_SERVICIO" />
+            </Principal>
+            <Dependent Role="RESERVAS">
+              <PropertyRef Name="ID_TIPO_SERVICIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008973">
+          <End Role="ROL_USUARIO" Type="Self.ROL_USUARIO" Multiplicity="0..1" />
+          <End Role="ROL_OPERACION" Type="Self.ROL_OPERACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL_USUARIO">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="ROL_OPERACION">
+              <PropertyRef Name="ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008952">
+          <End Role="ROL_USUARIO" Type="Self.ROL_USUARIO" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL_USUARIO">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ID_ROL_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008948">
+          <End Role="VEHICULOS" Type="Self.VEHICULOS" Multiplicity="1" />
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VEHICULOS">
+              <PropertyRef Name="PATENTE" />
+            </Principal>
+            <Dependent Role="SERVICIO">
+              <PropertyRef Name="PATENTE_VEHICULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008949">
+          <End Role="TIPO_SERVICIO" Type="Self.TIPO_SERVICIO" Multiplicity="1" />
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_SERVICIO">
+              <PropertyRef Name="ID_TIPO_SERVICIO" />
+            </Principal>
+            <Dependent Role="SERVICIO">
+              <PropertyRef Name="ID_TIPO_SERVICIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008950">
+          <End Role="VENTA_PRODUCTO" Type="Self.VENTA_PRODUCTO" Multiplicity="1" />
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENTA_PRODUCTO">
+              <PropertyRef Name="ID_PRODUCTO_VENTA" />
+            </Principal>
+            <Dependent Role="SERVICIO">
+              <PropertyRef Name="ID_PROD_VENTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C008953">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="VEHICULOS" Type="Self.VEHICULOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="RUT_USUARIO" />
+            </Principal>
+            <Dependent Role="VEHICULOS">
+              <PropertyRef Name="RUT_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ServiExpressEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DOCUMENTO_TRIBUTARIO" EntityType="Self.DOCUMENTO_TRIBUTARIO" />
+          <EntitySet Name="ESTADO_ORDEN_COMPRA" EntityType="Self.ESTADO_ORDEN_COMPRA" />
+          <EntitySet Name="FAMILIA_PRODUCTO" EntityType="Self.FAMILIA_PRODUCTO" />
+          <EntitySet Name="FORMA_PAGO" EntityType="Self.FORMA_PAGO" />
+          <EntitySet Name="OPERACIONES" EntityType="Self.OPERACIONES" />
+          <EntitySet Name="ORDEN_DE_COMPRA" EntityType="Self.ORDEN_DE_COMPRA" />
+          <EntitySet Name="PRODUCTOS" EntityType="Self.PRODUCTOS" />
+          <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" />
+          <EntitySet Name="RECEPCION" EntityType="Self.RECEPCION" />
+          <EntitySet Name="RESERVAS" EntityType="Self.RESERVAS" />
+          <EntitySet Name="ROL_OPERACION" EntityType="Self.ROL_OPERACION" />
+          <EntitySet Name="ROL_USUARIO" EntityType="Self.ROL_USUARIO" />
+          <EntitySet Name="RUBRO" EntityType="Self.RUBRO" />
+          <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" />
+          <EntitySet Name="TIPO_DOCUMENTO" EntityType="Self.TIPO_DOCUMENTO" />
+          <EntitySet Name="TIPO_PRODUCTO" EntityType="Self.TIPO_PRODUCTO" />
+          <EntitySet Name="TIPO_SERVICIO" EntityType="Self.TIPO_SERVICIO" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <EntitySet Name="VEHICULOS" EntityType="Self.VEHICULOS" />
+          <EntitySet Name="VENTA_PRODUCTO" EntityType="Self.VENTA_PRODUCTO" />
+          <AssociationSet Name="SYS_C008963" Association="Self.SYS_C008963">
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+            <End Role="DOCUMENTO_TRIBUTARIO" EntitySet="DOCUMENTO_TRIBUTARIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008964" Association="Self.SYS_C008964">
+            <End Role="FORMA_PAGO" EntitySet="FORMA_PAGO" />
+            <End Role="DOCUMENTO_TRIBUTARIO" EntitySet="DOCUMENTO_TRIBUTARIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008965" Association="Self.SYS_C008965">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="DOCUMENTO_TRIBUTARIO" EntitySet="DOCUMENTO_TRIBUTARIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008966" Association="Self.SYS_C008966">
+            <End Role="TIPO_DOCUMENTO" EntitySet="TIPO_DOCUMENTO" />
+            <End Role="DOCUMENTO_TRIBUTARIO" EntitySet="DOCUMENTO_TRIBUTARIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008939" Association="Self.SYS_C008939">
+            <End Role="ESTADO_ORDEN_COMPRA" EntitySet="ESTADO_ORDEN_COMPRA" />
+            <End Role="ORDEN_DE_COMPRA" EntitySet="ORDEN_DE_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008951" Association="Self.SYS_C008951">
+            <End Role="FAMILIA_PRODUCTO" EntitySet="FAMILIA_PRODUCTO" />
+            <End Role="TIPO_PRODUCTO" EntitySet="TIPO_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008974" Association="Self.SYS_C008974">
+            <End Role="OPERACIONES" EntitySet="OPERACIONES" />
+            <End Role="ROL_OPERACION" EntitySet="ROL_OPERACION" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008938" Association="Self.SYS_C008938">
+            <End Role="ORDEN_DE_COMPRA" EntitySet="ORDEN_DE_COMPRA" />
+            <End Role="RECEPCION" EntitySet="RECEPCION" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008940" Association="Self.SYS_C008940">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="ORDEN_DE_COMPRA" EntitySet="ORDEN_DE_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008941" Association="Self.SYS_C008941">
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+            <End Role="ORDEN_DE_COMPRA" EntitySet="ORDEN_DE_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008942" Association="Self.SYS_C008942">
+            <End Role="TIPO_PRODUCTO" EntitySet="TIPO_PRODUCTO" />
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008943" Association="Self.SYS_C008943">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008954" Association="Self.SYS_C008954">
+            <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+            <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008944" Association="Self.SYS_C008944">
+            <End Role="RUBRO" EntitySet="RUBRO" />
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008945" Association="Self.SYS_C008945">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="RESERVAS" EntitySet="RESERVAS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008947" Association="Self.SYS_C008947">
+            <End Role="VEHICULOS" EntitySet="VEHICULOS" />
+            <End Role="RESERVAS" EntitySet="RESERVAS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008987" Association="Self.SYS_C008987">
+            <End Role="TIPO_SERVICIO" EntitySet="TIPO_SERVICIO" />
+            <End Role="RESERVAS" EntitySet="RESERVAS" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008973" Association="Self.SYS_C008973">
+            <End Role="ROL_USUARIO" EntitySet="ROL_USUARIO" />
+            <End Role="ROL_OPERACION" EntitySet="ROL_OPERACION" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008952" Association="Self.SYS_C008952">
+            <End Role="ROL_USUARIO" EntitySet="ROL_USUARIO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008948" Association="Self.SYS_C008948">
+            <End Role="VEHICULOS" EntitySet="VEHICULOS" />
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008949" Association="Self.SYS_C008949">
+            <End Role="TIPO_SERVICIO" EntitySet="TIPO_SERVICIO" />
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008950" Association="Self.SYS_C008950">
+            <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C008953" Association="Self.SYS_C008953">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="VEHICULOS" EntitySet="VEHICULOS" />
+          </AssociationSet>
+          <FunctionImport Name="SP_CREATE_DOCTRIB">
+            <Parameter Name="V_FECHACREA" Mode="In" Type="DateTime" />
+            <Parameter Name="V_IDTIPODOC" Mode="In" Type="Decimal" />
+            <Parameter Name="V_IDSERVICIO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_RUTUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_IDFORMAPAGO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_NOMCLIENTE" Mode="In" Type="String" />
+            <Parameter Name="V_RUTCLIENTE" Mode="In" Type="String" />
+            <Parameter Name="V_TOTALPAGAR" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CREATE_ODC">
+            <Parameter Name="V_RUTUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_IDPRODUCTO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_FECHACREACION" Mode="In" Type="DateTime" />
+            <Parameter Name="V_IDESTADOORDEN" Mode="In" Type="Decimal" />
+            <Parameter Name="V_MONTO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CREATE_PRODUCTO">
+            <Parameter Name="V_CODPROD" Mode="In" Type="Decimal" />
+            <Parameter Name="V_IDPROVEEDOR" Mode="In" Type="Decimal" />
+            <Parameter Name="V_IDTIPOPROD" Mode="In" Type="Decimal" />
+            <Parameter Name="V_NOMBREPROD" Mode="In" Type="String" />
+            <Parameter Name="V_MARCAPROD" Mode="In" Type="String" />
+            <Parameter Name="V_DESCPROD" Mode="In" Type="String" />
+            <Parameter Name="V_FECHAVENC" Mode="In" Type="DateTime" />
+            <Parameter Name="V_PRECIOVENTA" Mode="In" Type="Decimal" />
+            <Parameter Name="V_PRECIOCOMPRA" Mode="In" Type="Decimal" />
+            <Parameter Name="V_STOCK" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CREATE_PROVEEDOR">
+            <Parameter Name="V_RUTEMPRESA" Mode="In" Type="String" />
+            <Parameter Name="V_RAZONSOCIAL" Mode="In" Type="String" />
+            <Parameter Name="V_DIRECCION" Mode="In" Type="String" />
+            <Parameter Name="V_IDRUBRO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_TELEFONOCONTACTO" Mode="In" Type="String" />
+            <Parameter Name="V_CORREOCONTACTO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CREATE_RECEPCION">
+            <Parameter Name="V_RUTUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_FECHARECEP" Mode="In" Type="DateTime" />
+            <Parameter Name="V_OBSERVACIONES" Mode="In" Type="String" />
+            <Parameter Name="V_IDORDENCOMPRA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CREATE_RESERVAS">
+            <Parameter Name="V_FECHARESERVA" Mode="In" Type="DateTime" />
+            <Parameter Name="V_RUTUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_NOMBRECLIE" Mode="In" Type="String" />
+            <Parameter Name="V_CORREOUSU" Mode="In" Type="String" />
+            <Parameter Name="V_PATENTE" Mode="In" Type="String" />
+            <Parameter Name="V_IDTIPOSERVICIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CREATE_RUBRO">
+            <Parameter Name="V_DESCRUBRO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CREATE_SERVICIO">
+            <Parameter Name="V_RUTUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_NOMAPUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_PATENTE" Mode="In" Type="String" />
+            <Parameter Name="V_IDTIPOSERV" Mode="In" Type="Decimal" />
+            <Parameter Name="V_IDPRODVENT" Mode="In" Type="Decimal" />
+            <Parameter Name="V_RUTMECANICO" Mode="In" Type="String" />
+            <Parameter Name="V_NOMMEC" Mode="In" Type="String" />
+            <Parameter Name="V_CODPRODUCTO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CREATE_USUARIO">
+            <Parameter Name="V_RUTUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_NOMAPUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_CORREO" Mode="In" Type="String" />
+            <Parameter Name="V_PASWD" Mode="In" Type="String" />
+            <Parameter Name="V_IDROL" Mode="In" Type="Decimal" />
+            <Parameter Name="V_DIRECCIONUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_TELEFONOUSUARIO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CREATE_VEHICULO">
+            <Parameter Name="V_PATENTE" Mode="In" Type="String" />
+            <Parameter Name="V_RUTUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_MARCA" Mode="In" Type="String" />
+            <Parameter Name="V_MODELO" Mode="In" Type="String" />
+            <Parameter Name="V_ANIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CREATE_VPRODUCTO">
+            <Parameter Name="V_IDPRODUCTO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CANTIDAD" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CODPRODUCTO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_DOCTRIB">
+            <Parameter Name="V_IDDOCTRIB" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_ODC">
+            <Parameter Name="V_IDORDEN" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_PRODUCTO">
+            <Parameter Name="V_IDPRODUCTO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_PROVEEDOR">
+            <Parameter Name="V_IDPROVEEDOR" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_RECEPCION">
+            <Parameter Name="V_IDRECEPCION" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_RESERVAS">
+            <Parameter Name="V_IDRESERVAS" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_RUBRO">
+            <Parameter Name="V_IDRUBRO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_SERVICIO">
+            <Parameter Name="V_IDSERVICIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_USER">
+            <Parameter Name="V_RUTUSUARIO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_VEHICULO">
+            <Parameter Name="V_PATENTE" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DELETE_VPRODUCTO">
+            <Parameter Name="V_IDPRODVENTA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_DOCTRIB">
+            <Parameter Name="V_IDDOCTRIB" Mode="In" Type="Decimal" />
+            <Parameter Name="V_FECHACREA" Mode="In" Type="DateTime" />
+            <Parameter Name="V_IDTIPODOC" Mode="In" Type="Decimal" />
+            <Parameter Name="V_IDSERVICIO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_RUTUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_IDFORMAPAGO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_NOMCLIENTE" Mode="In" Type="String" />
+            <Parameter Name="V_RUTCLIENTE" Mode="In" Type="String" />
+            <Parameter Name="V_TOTALPAGAR" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_ODC">
+            <Parameter Name="V_IDORDEN" Mode="In" Type="Decimal" />
+            <Parameter Name="V_RUTUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_IDPRODUCTO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_FECHACREACION" Mode="In" Type="DateTime" />
+            <Parameter Name="V_IDESTADOORDEN" Mode="In" Type="Decimal" />
+            <Parameter Name="V_MONTO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_PRODUCTO">
+            <Parameter Name="V_IDPRODUCTO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CODUSUARIO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_IDPROVEEDOR" Mode="In" Type="Decimal" />
+            <Parameter Name="V_IDTIPOPROD" Mode="In" Type="Decimal" />
+            <Parameter Name="V_NOMBREPROD" Mode="In" Type="String" />
+            <Parameter Name="V_MARCAPROD" Mode="In" Type="String" />
+            <Parameter Name="V_DESCPROD" Mode="In" Type="String" />
+            <Parameter Name="V_FECHAVENC" Mode="In" Type="DateTime" />
+            <Parameter Name="V_PRECIOVENTA" Mode="In" Type="Decimal" />
+            <Parameter Name="V_PRECIOCOMPRA" Mode="In" Type="Decimal" />
+            <Parameter Name="V_STOCK" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_PROVEEDOR">
+            <Parameter Name="V_IDPROVEEDOR" Mode="In" Type="Decimal" />
+            <Parameter Name="V_RUTEMPRESA" Mode="In" Type="String" />
+            <Parameter Name="V_RAZONSOCIAL" Mode="In" Type="String" />
+            <Parameter Name="V_DIRECCION" Mode="In" Type="String" />
+            <Parameter Name="V_IDRUBRO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_TELEFONOCONTACTO" Mode="In" Type="String" />
+            <Parameter Name="V_CORREOCONTACTO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_RECEPCION">
+            <Parameter Name="V_IDRECEPCION" Mode="In" Type="Decimal" />
+            <Parameter Name="V_RUTUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_FECHARECEP" Mode="In" Type="DateTime" />
+            <Parameter Name="V_OBSERVACIONES" Mode="In" Type="String" />
+            <Parameter Name="V_IDORDENCOMPRA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_RESERVAS">
+            <Parameter Name="V_IDRESERVAS" Mode="In" Type="Decimal" />
+            <Parameter Name="V_FECHARESERVA" Mode="In" Type="DateTime" />
+            <Parameter Name="V_RUTUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_NOMBRECLIE" Mode="In" Type="String" />
+            <Parameter Name="V_CORREOUSU" Mode="In" Type="String" />
+            <Parameter Name="V_PATENTE" Mode="In" Type="String" />
+            <Parameter Name="V_IDTIPOSERVICIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_RUBRO">
+            <Parameter Name="V_IDRUBRO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_DESCRUBRO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_SERVICIO">
+            <Parameter Name="V_IDSERVICIO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_RUTUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_NOMAPUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_PATENTE" Mode="In" Type="String" />
+            <Parameter Name="V_IDTIPOSERV" Mode="In" Type="Decimal" />
+            <Parameter Name="V_IDPRODVENT" Mode="In" Type="Decimal" />
+            <Parameter Name="V_RUTMECANICO" Mode="In" Type="String" />
+            <Parameter Name="V_NOMMEC" Mode="In" Type="String" />
+            <Parameter Name="V_CODPRODUCTO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_USUARIO">
+            <Parameter Name="V_RUTUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_NOMBREUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_CORREO" Mode="In" Type="String" />
+            <Parameter Name="V_PASWD" Mode="In" Type="String" />
+            <Parameter Name="V_IDROL" Mode="In" Type="Decimal" />
+            <Parameter Name="V_DIRECCIONUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_TELEFONOUSUARIO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_VEHICULO">
+            <Parameter Name="V_PATENTE" Mode="In" Type="String" />
+            <Parameter Name="V_RUTUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="V_MARCA" Mode="In" Type="String" />
+            <Parameter Name="V_MODELO" Mode="In" Type="String" />
+            <Parameter Name="V_ANIO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_VPRODUCTO">
+            <Parameter Name="V_IDPRODVENTA" Mode="In" Type="Decimal" />
+            <Parameter Name="V_IDPRODUCTO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CANTIDAD" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CODPRODUCTO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ServiExpressEntities">
+          <EntitySetMapping Name="DOCUMENTO_TRIBUTARIO">
+            <EntityTypeMapping TypeName="Model.DOCUMENTO_TRIBUTARIO">
+              <MappingFragment StoreEntitySet="DOCUMENTO_TRIBUTARIO">
+                <ScalarProperty Name="ID_DOCUMENTO_TRIB" ColumnName="ID_DOCUMENTO_TRIB" />
+                <ScalarProperty Name="FECHA_DE_CREACION" ColumnName="FECHA_DE_CREACION" />
+                <ScalarProperty Name="ID_TIPO_DOC" ColumnName="ID_TIPO_DOC" />
+                <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
+                <ScalarProperty Name="RUT_USUARIO_VEND" ColumnName="RUT_USUARIO_VEND" />
+                <ScalarProperty Name="ID_FORMA_PAGO" ColumnName="ID_FORMA_PAGO" />
+                <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE_CLIENTE" />
+                <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+                <ScalarProperty Name="TOTAL_PAGAR" ColumnName="TOTAL_PAGAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTADO_ORDEN_COMPRA">
+            <EntityTypeMapping TypeName="Model.ESTADO_ORDEN_COMPRA">
+              <MappingFragment StoreEntitySet="ESTADO_ORDEN_COMPRA">
+                <ScalarProperty Name="ID_ESTADO_ORDEN" ColumnName="ID_ESTADO_ORDEN" />
+                <ScalarProperty Name="DESCRIPCION_ESTADO" ColumnName="DESCRIPCION_ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FAMILIA_PRODUCTO">
+            <EntityTypeMapping TypeName="Model.FAMILIA_PRODUCTO">
+              <MappingFragment StoreEntitySet="FAMILIA_PRODUCTO">
+                <ScalarProperty Name="ID_FAMILIA_PRODUCTO" ColumnName="ID_FAMILIA_PRODUCTO" />
+                <ScalarProperty Name="DESCRIPCION_FAMILIA_PROD" ColumnName="DESCRIPCION_FAMILIA_PROD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FORMA_PAGO">
+            <EntityTypeMapping TypeName="Model.FORMA_PAGO">
+              <MappingFragment StoreEntitySet="FORMA_PAGO">
+                <ScalarProperty Name="ID_FORMA" ColumnName="ID_FORMA" />
+                <ScalarProperty Name="NOMBRE_FORMA" ColumnName="NOMBRE_FORMA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OPERACIONES">
+            <EntityTypeMapping TypeName="Model.OPERACIONES">
+              <MappingFragment StoreEntitySet="OPERACIONES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOMBRE_OP" ColumnName="NOMBRE_OP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDEN_DE_COMPRA">
+            <EntityTypeMapping TypeName="Model.ORDEN_DE_COMPRA">
+              <MappingFragment StoreEntitySet="ORDEN_DE_COMPRA">
+                <ScalarProperty Name="ID_ORDEN" ColumnName="ID_ORDEN" />
+                <ScalarProperty Name="RUT_USUARIO" ColumnName="RUT_USUARIO" />
+                <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+                <ScalarProperty Name="FECHA_DE_CREACION" ColumnName="FECHA_DE_CREACION" />
+                <ScalarProperty Name="ID_ESTADO_ORDEN" ColumnName="ID_ESTADO_ORDEN" />
+                <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTOS">
+            <EntityTypeMapping TypeName="Model.PRODUCTOS">
+              <MappingFragment StoreEntitySet="PRODUCTOS">
+                <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+                <ScalarProperty Name="CODIGO_PRODUCTO" ColumnName="CODIGO_PRODUCTO" />
+                <ScalarProperty Name="ID_PROVEEDOR" ColumnName="ID_PROVEEDOR" />
+                <ScalarProperty Name="ID_TIPO_PRODUCTO" ColumnName="ID_TIPO_PRODUCTO" />
+                <ScalarProperty Name="NOMBRE_PRODUCTO" ColumnName="NOMBRE_PRODUCTO" />
+                <ScalarProperty Name="MARCA_PROD" ColumnName="MARCA_PROD" />
+                <ScalarProperty Name="DESCRIPCION_PRODUCTO" ColumnName="DESCRIPCION_PRODUCTO" />
+                <ScalarProperty Name="FECHA_VENCIMIENTO" ColumnName="FECHA_VENCIMIENTO" />
+                <ScalarProperty Name="PRECIO_VENTA" ColumnName="PRECIO_VENTA" />
+                <ScalarProperty Name="PRECIO_COMPRA" ColumnName="PRECIO_COMPRA" />
+                <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROVEEDOR">
+            <EntityTypeMapping TypeName="Model.PROVEEDOR">
+              <MappingFragment StoreEntitySet="PROVEEDOR">
+                <ScalarProperty Name="ID_PROVEEDOR" ColumnName="ID_PROVEEDOR" />
+                <ScalarProperty Name="RUT_EMPRESA" ColumnName="RUT_EMPRESA" />
+                <ScalarProperty Name="RAZON_SOCIAL" ColumnName="RAZON_SOCIAL" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="ID_RUBRO" ColumnName="ID_RUBRO" />
+                <ScalarProperty Name="TELEFONO_CONTACTO" ColumnName="TELEFONO_CONTACTO" />
+                <ScalarProperty Name="CORREO_CONTACTO" ColumnName="CORREO_CONTACTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECEPCION">
+            <EntityTypeMapping TypeName="Model.RECEPCION">
+              <MappingFragment StoreEntitySet="RECEPCION">
+                <ScalarProperty Name="ID_RECEPCION" ColumnName="ID_RECEPCION" />
+                <ScalarProperty Name="RUT_USUARIO" ColumnName="RUT_USUARIO" />
+                <ScalarProperty Name="FECHA_RECEPCION" ColumnName="FECHA_RECEPCION" />
+                <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+                <ScalarProperty Name="ID_ORDEN_COMPRA" ColumnName="ID_ORDEN_COMPRA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESERVAS">
+            <EntityTypeMapping TypeName="Model.RESERVAS">
+              <MappingFragment StoreEntitySet="RESERVAS">
+                <ScalarProperty Name="ID_RESERVA" ColumnName="ID_RESERVA" />
+                <ScalarProperty Name="FECHA_RESERVA" ColumnName="FECHA_RESERVA" />
+                <ScalarProperty Name="RUT_USUARIO" ColumnName="RUT_USUARIO" />
+                <ScalarProperty Name="NOM_AP_CLIENTE" ColumnName="NOM_AP_CLIENTE" />
+                <ScalarProperty Name="CORREO_USUARIO" ColumnName="CORREO_USUARIO" />
+                <ScalarProperty Name="PATENTE" ColumnName="PATENTE" />
+                <ScalarProperty Name="ID_TIPO_SERVICIO" ColumnName="ID_TIPO_SERVICIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROL_OPERACION">
+            <EntityTypeMapping TypeName="Model.ROL_OPERACION">
+              <MappingFragment StoreEntitySet="ROL_OPERACION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+                <ScalarProperty Name="ID_OP" ColumnName="ID_OP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROL_USUARIO">
+            <EntityTypeMapping TypeName="Model.ROL_USUARIO">
+              <MappingFragment StoreEntitySet="ROL_USUARIO">
+                <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+                <ScalarProperty Name="NOMBRE_ROL" ColumnName="NOMBRE_ROL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RUBRO">
+            <EntityTypeMapping TypeName="Model.RUBRO">
+              <MappingFragment StoreEntitySet="RUBRO">
+                <ScalarProperty Name="ID_RUBRO" ColumnName="ID_RUBRO" />
+                <ScalarProperty Name="DESCRIPCION_RUBRO" ColumnName="DESCRIPCION_RUBRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERVICIO">
+            <EntityTypeMapping TypeName="Model.SERVICIO">
+              <MappingFragment StoreEntitySet="SERVICIO">
+                <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
+                <ScalarProperty Name="RUT_USUARIO" ColumnName="RUT_USUARIO" />
+                <ScalarProperty Name="NOM_AP_USUARIO" ColumnName="NOM_AP_USUARIO" />
+                <ScalarProperty Name="PATENTE_VEHICULO" ColumnName="PATENTE_VEHICULO" />
+                <ScalarProperty Name="ID_TIPO_SERVICIO" ColumnName="ID_TIPO_SERVICIO" />
+                <ScalarProperty Name="ID_PROD_VENTA" ColumnName="ID_PROD_VENTA" />
+                <ScalarProperty Name="RUT_MECANICO" ColumnName="RUT_MECANICO" />
+                <ScalarProperty Name="NOMBRE_MECANICO" ColumnName="NOMBRE_MECANICO" />
+                <ScalarProperty Name="CODIGO_PRODUCTO" ColumnName="CODIGO_PRODUCTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_DOCUMENTO">
+            <EntityTypeMapping TypeName="Model.TIPO_DOCUMENTO">
+              <MappingFragment StoreEntitySet="TIPO_DOCUMENTO">
+                <ScalarProperty Name="ID_TIPO_DOCUMENTO" ColumnName="ID_TIPO_DOCUMENTO" />
+                <ScalarProperty Name="DESCRIPCION_TIPO_DOC" ColumnName="DESCRIPCION_TIPO_DOC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_PRODUCTO">
+            <EntityTypeMapping TypeName="Model.TIPO_PRODUCTO">
+              <MappingFragment StoreEntitySet="TIPO_PRODUCTO">
+                <ScalarProperty Name="ID_TIPO_PRODUCTO" ColumnName="ID_TIPO_PRODUCTO" />
+                <ScalarProperty Name="DESCRIPCION_TIPO_PROD" ColumnName="DESCRIPCION_TIPO_PROD" />
+                <ScalarProperty Name="ID_FAMILIA_PRODUCTO" ColumnName="ID_FAMILIA_PRODUCTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_SERVICIO">
+            <EntityTypeMapping TypeName="Model.TIPO_SERVICIO">
+              <MappingFragment StoreEntitySet="TIPO_SERVICIO">
+                <ScalarProperty Name="ID_TIPO_SERVICIO" ColumnName="ID_TIPO_SERVICIO" />
+                <ScalarProperty Name="DESCRIPCION_TIPO_SERV" ColumnName="DESCRIPCION_TIPO_SERV" />
+                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="Model.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="RUT_USUARIO" ColumnName="RUT_USUARIO" />
+                <ScalarProperty Name="NOM_AP_USUARIO" ColumnName="NOM_AP_USUARIO" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+                <ScalarProperty Name="PASWD" ColumnName="PASWD" />
+                <ScalarProperty Name="ID_ROL_USUARIO" ColumnName="ID_ROL_USUARIO" />
+                <ScalarProperty Name="DIRECCION_USUARIO" ColumnName="DIRECCION_USUARIO" />
+                <ScalarProperty Name="TELEFONO_USUARIO" ColumnName="TELEFONO_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VEHICULOS">
+            <EntityTypeMapping TypeName="Model.VEHICULOS">
+              <MappingFragment StoreEntitySet="VEHICULOS">
+                <ScalarProperty Name="PATENTE" ColumnName="PATENTE" />
+                <ScalarProperty Name="RUT_USUARIO" ColumnName="RUT_USUARIO" />
+                <ScalarProperty Name="MARCA" ColumnName="MARCA" />
+                <ScalarProperty Name="MODELO" ColumnName="MODELO" />
+                <ScalarProperty Name="ANIO" ColumnName="ANIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENTA_PRODUCTO">
+            <EntityTypeMapping TypeName="Model.VENTA_PRODUCTO">
+              <MappingFragment StoreEntitySet="VENTA_PRODUCTO">
+                <ScalarProperty Name="ID_PRODUCTO_VENTA" ColumnName="ID_PRODUCTO_VENTA" />
+                <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="CODIGO_PRODUCTO" ColumnName="CODIGO_PRODUCTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_CREATE_DOCTRIB" FunctionName="Model.Store.SP_CREATE_DOCTRIB" />
+          <FunctionImportMapping FunctionImportName="SP_CREATE_ODC" FunctionName="Model.Store.SP_CREATE_ODC" />
+          <FunctionImportMapping FunctionImportName="SP_CREATE_PRODUCTO" FunctionName="Model.Store.SP_CREATE_PRODUCTO" />
+          <FunctionImportMapping FunctionImportName="SP_CREATE_PROVEEDOR" FunctionName="Model.Store.SP_CREATE_PROVEEDOR" />
+          <FunctionImportMapping FunctionImportName="SP_CREATE_RECEPCION" FunctionName="Model.Store.SP_CREATE_RECEPCION" />
+          <FunctionImportMapping FunctionImportName="SP_CREATE_RESERVAS" FunctionName="Model.Store.SP_CREATE_RESERVAS" />
+          <FunctionImportMapping FunctionImportName="SP_CREATE_RUBRO" FunctionName="Model.Store.SP_CREATE_RUBRO" />
+          <FunctionImportMapping FunctionImportName="SP_CREATE_SERVICIO" FunctionName="Model.Store.SP_CREATE_SERVICIO" />
+          <FunctionImportMapping FunctionImportName="SP_CREATE_USUARIO" FunctionName="Model.Store.SP_CREATE_USUARIO" />
+          <FunctionImportMapping FunctionImportName="SP_CREATE_VEHICULO" FunctionName="Model.Store.SP_CREATE_VEHICULO" />
+          <FunctionImportMapping FunctionImportName="SP_CREATE_VPRODUCTO" FunctionName="Model.Store.SP_CREATE_VPRODUCTO" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_DOCTRIB" FunctionName="Model.Store.SP_DELETE_DOCTRIB" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_ODC" FunctionName="Model.Store.SP_DELETE_ODC" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_PRODUCTO" FunctionName="Model.Store.SP_DELETE_PRODUCTO" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_PROVEEDOR" FunctionName="Model.Store.SP_DELETE_PROVEEDOR" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_RECEPCION" FunctionName="Model.Store.SP_DELETE_RECEPCION" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_RESERVAS" FunctionName="Model.Store.SP_DELETE_RESERVAS" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_RUBRO" FunctionName="Model.Store.SP_DELETE_RUBRO" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_SERVICIO" FunctionName="Model.Store.SP_DELETE_SERVICIO" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_USER" FunctionName="Model.Store.SP_DELETE_USER" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_VEHICULO" FunctionName="Model.Store.SP_DELETE_VEHICULO" />
+          <FunctionImportMapping FunctionImportName="SP_DELETE_VPRODUCTO" FunctionName="Model.Store.SP_DELETE_VPRODUCTO" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_DOCTRIB" FunctionName="Model.Store.SP_UPDATE_DOCTRIB" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_ODC" FunctionName="Model.Store.SP_UPDATE_ODC" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_PRODUCTO" FunctionName="Model.Store.SP_UPDATE_PRODUCTO" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_PROVEEDOR" FunctionName="Model.Store.SP_UPDATE_PROVEEDOR" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_RECEPCION" FunctionName="Model.Store.SP_UPDATE_RECEPCION" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_RESERVAS" FunctionName="Model.Store.SP_UPDATE_RESERVAS" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_RUBRO" FunctionName="Model.Store.SP_UPDATE_RUBRO" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_SERVICIO" FunctionName="Model.Store.SP_UPDATE_SERVICIO" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_USUARIO" FunctionName="Model.Store.SP_UPDATE_USUARIO" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_VEHICULO" FunctionName="Model.Store.SP_UPDATE_VEHICULO" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_VPRODUCTO" FunctionName="Model.Store.SP_UPDATE_VPRODUCTO" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
